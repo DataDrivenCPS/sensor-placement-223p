@@ -1,0 +1,4 @@
+[submodule "BuildingMOTIF"]
+	path = BuildingMOTIF
+	url = https://github.com/NREL/BuildingMOTIF/
+	branch = gtf-add-new-model-builder
