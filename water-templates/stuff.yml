@@ -1,0 +1,139 @@
+aerobic-process-unit:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:AerobicProcessUnit rdfs:subClassOf s223:Equipment .
+    P:name a s223:AerobicProcessUnit ;
+      s223:hasConnectionPoint P:water-in, P:water-out, P:aerobic-recycle .
+  optional: ["aerobic-recycle"]
+  dependencies:
+  - template: water-inlet-cp
+    library: nrel-templates
+    args: {"name": "water-in"}
+  - template: water-outlet-cp
+    library: nrel-templates
+    args: {"name": "water-out"}
+  - template: water-outlet-cp
+    library: nrel-templates
+    args: {"name": "aerobic-recycle"}
+
+
+settler:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:Settler rdfs:subClassOf s223:Equipment .
+    P:name a s223:Settler ;
+      s223:hasConnectionPoint P:water-in, P:water-out, P:sludge-return .
+  dependencies:
+  - template: water-inlet-cp
+    library: nrel-templates
+    args: {"name": "water-in"}
+  - template: water-outlet-cp
+    library: nrel-templates
+    args: {"name": "water-out"}
+  - template: sludge-return
+    args: {"name": "sludge-return"}
+
+anoxic:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:Settler rdfs:subClassOf s223:Equipment .
+    P:name a s223:Anoxic ;
+      s223:hasConnectionPoint P:water-in, P:water-out, P:aerobic-recycle .
+  dependencies:
+  - template: water-inlet-cp
+    library: nrel-templates
+    args: {"name": "water-in"}
+  - template: water-outlet-cp
+    library: nrel-templates
+    args: {"name": "water-out"}
+  - template: aerobic-recycle
+    args: {"name": "aerobic-recycle"}
+
+sludge-return:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:OutletConnectionPoint ;
+      s223:hasMedium s223:Medium-Sludge .
+
+aerobic-recycle:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:InletConnectionPoint ;
+      s223:hasMedium s223:Medium-Water .
+
+pipe:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:Pipe ;
+      s223:hasMedium s223:Medium-Water ;
+      s223:cnx P:a, P:b .
+
+junction-2to1:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:Junction ;
+      s223:hasMedium s223:Medium-Water ;
+      s223:cnx P:in1, P:in2, P:out1 .
+  dependencies:
+    - template: water-inlet-cp
+      library: nrel-templates
+      args: {"name": "in1"}
+    - template: water-inlet-cp
+      library: nrel-templates
+      args: {"name": "in2"}
+    - template: water-outlet-cp
+      library: nrel-templates
+      args: {"name": "out1"}
+
+junction-1to2:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:Junction ;
+      s223:hasMedium s223:Medium-Water ;
+      s223:cnx P:in1, P:out1, P:out2 .
+  dependencies:
+    - template: water-inlet-cp
+      library: nrel-templates
+      args: {"name": "in1"}
+    - template: water-outlet-cp
+      library: nrel-templates
+      args: {"name": "out1"}
+    - template: water-outlet-cp
+      library: nrel-templates
+      args: {"name": "out2"}
+
+carbon-dosing-junction:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:Junction ;
+      s223:hasMedium s223:Medium-Water ;
+      s223:cnx P:carbon-in, P:water-in, P:water-out .
+  dependencies:
+    - template: water-inlet-cp
+      library: nrel-templates
+      args: {"name": "water-in"}
+    - template: water-outlet-cp
+      library: nrel-templates
+      args: {"name": "water-out"}
+    - template: carbon-inlet-cp
+      args: {"name": "carbon-in"}
+
+carbon-inlet-cp:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:InletConnectionPoint ;
+      s223:mapsTo P:mapsto ;
+      s223:hasMedium s223:Medium-Carbon .

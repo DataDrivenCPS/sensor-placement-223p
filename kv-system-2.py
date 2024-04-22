@@ -14,8 +14,8 @@ bldg = Model.create(BLDG)
 bind_prefixes(bldg.graph)
 bldg.graph.bind("bldg", BLDG)
 
-nrel = Library.load(directory="libraries/ashrae/223p/nrel-templates")
-water = Library.load(directory="libraries/ashrae/223p/water")
+nrel = Library.load(directory="BuildingMOTIF/libraries/ashrae/223p/nrel-templates")
+water = Library.load(directory="water-templates")
 
 
 def pipe(from_cp, to_cp):
