@@ -52,5 +52,5 @@ pipe(aerobic_junction["out1"], aerobic["water-in"])
 pipe(sludge_junction["out1"], aerobic_junction["in2"])
 
 bldg.add_graph(ctx.compile())
-bldg.graph.serialize("kv1.ttl", format="turtle")
-write_to_file(bldg.graph, "kv1.png")
+bldg.graph.serialize("models/kv1.ttl", format="turtle")
+write_to_file(bldg.graph, "models/kv1.png")

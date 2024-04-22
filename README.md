@@ -2,6 +2,8 @@
 
 Modeling a few basic waste water treatment plants with [ASHRAE 223P](https://open223.info) to experiment with doing the optimal sensor placement computation from [this paper](https://doi.org/10.1016/j.watres.2016.05.068).
 
+Models are located in the `models/` directory
+
 ## Setup
 
 ```bash

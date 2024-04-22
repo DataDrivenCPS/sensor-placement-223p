@@ -58,6 +58,5 @@ pipe(settler_junction["out1"], input_junction["in2"])
 pipe(aerobic["aerobic-recycle"], anoxic["aerobic-recycle"])
 
 bldg.add_graph(ctx.compile())
-bldg.add_graph(ctx.compile())
-bldg.graph.serialize("kv2.ttl", format="turtle")
-write_to_file(bldg.graph, "kv2.png")
+bldg.graph.serialize("models/kv2.ttl", format="turtle")
+write_to_file(bldg.graph, "models/kv2.png")
