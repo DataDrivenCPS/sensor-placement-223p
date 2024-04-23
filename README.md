@@ -14,6 +14,7 @@ poetry install
 ## Create the models
 
 ```bash
+mkdir -p models/
 poetry run python kv-system-1.py
 poetry run python kv-system-2.py
 ```
