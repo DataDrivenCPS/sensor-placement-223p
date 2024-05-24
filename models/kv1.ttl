@@ -1,109 +1,188 @@
-@prefix bldg: <urn:nrel_example/> .
 @prefix ns1: <http://data.ashrae.org/standard223#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-bldg: a owl:Ontology .
-
-bldg:AEROBIC a ns1:AerobicProcessUnit ;
-    rdfs:label "AerobicProcessUnit" ;
-    ns1:hasConnectionPoint bldg:aerobic-recycle_8abf7008,
-        bldg:water-in_3f8442af,
-        bldg:water-out_eb2cd0a6 .
-
-bldg:AEROBIC_JUNCTION a ns1:Junction ;
-    rdfs:label "Junction" ;
-    ns1:cnx bldg:in1_c00e3679,
-        bldg:in2_102acc62,
-        bldg:out1_5ac62416 ;
-    ns1:hasMedium ns1:Medium-Water .
-
-bldg:SETTLER a ns1:Settler ;
-    rdfs:label "Settler" ;
-    ns1:hasConnectionPoint bldg:sludge-return_86e5d4d3,
-        bldg:water-in_4f8d0d4e,
-        bldg:water-out_d361ce0d .
-
-bldg:SLUDGE_JUNCTION a ns1:Junction ;
-    rdfs:label "Junction" ;
-    ns1:cnx bldg:in1_19862142,
-        bldg:out1_b2b1352c,
-        bldg:out2_ffc1c044 ;
-    ns1:hasMedium ns1:Medium-Water .
-
-bldg:name_8721ad50 a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx bldg:in2_102acc62,
-        bldg:out1_b2b1352c ;
-    ns1:hasMedium ns1:Medium-Water .
-
-bldg:name_9b839c03 a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx bldg:water-in_4f8d0d4e,
-        bldg:water-out_eb2cd0a6 ;
-    ns1:hasMedium ns1:Medium-Water .
-
-bldg:name_a2f660ea a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx bldg:in1_19862142,
-        bldg:sludge-return_86e5d4d3 ;
-    ns1:hasMedium ns1:Medium-Water .
-
-bldg:name_af848acf a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx bldg:out1_5ac62416,
-        bldg:water-in_3f8442af ;
-    ns1:hasMedium ns1:Medium-Water .
+<urn:nrel_example/> a owl:Ontology .
 
 ns1:AerobicProcessUnit rdfs:subClassOf ns1:Equipment .
 
 ns1:Settler rdfs:subClassOf ns1:Equipment .
 
-bldg:aerobic-recycle_8abf7008 a ns1:OutletConnectionPoint ;
+<urn:nrel_example/aerobic-recycle_d64202c7> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
-    ns1:hasMedium ns1:Medium-Water .
+    ns1:cnx <urn:nrel_example/AEROBIC> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/AEROBIC> .
 
-bldg:in1_c00e3679 a ns1:InletConnectionPoint ;
+<urn:nrel_example/in1_cb1a8751> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
-    ns1:hasMedium ns1:Medium-Water .
+    ns1:cnx <urn:nrel_example/AEROBIC_JUNCTION> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/AEROBIC_JUNCTION> .
 
-bldg:out2_ffc1c044 a ns1:OutletConnectionPoint ;
+<urn:nrel_example/out2_596d821c> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
-    ns1:hasMedium ns1:Medium-Water .
+    ns1:cnx <urn:nrel_example/SLUDGE_JUNCTION> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/SLUDGE_JUNCTION> .
 
-bldg:water-out_d361ce0d a ns1:OutletConnectionPoint ;
+<urn:nrel_example/water-out_70600ffd> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
-    ns1:hasMedium ns1:Medium-Water .
+    ns1:cnx <urn:nrel_example/SETTLER> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/SETTLER> .
 
-bldg:in1_19862142 a ns1:InletConnectionPoint ;
+<urn:nrel_example/in1_fe06b9ea> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
-    ns1:hasMedium ns1:Medium-Water .
+    ns1:cnx <urn:nrel_example/SLUDGE_JUNCTION>,
+        <urn:nrel_example/name_6a9fcfbf> ;
+    ns1:connectsThrough <urn:nrel_example/name_6a9fcfbf> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/SLUDGE_JUNCTION> .
 
-bldg:in2_102acc62 a ns1:InletConnectionPoint ;
+<urn:nrel_example/in2_a251d52f> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
-    ns1:hasMedium ns1:Medium-Water .
+    ns1:cnx <urn:nrel_example/AEROBIC_JUNCTION>,
+        <urn:nrel_example/name_04e4b737> ;
+    ns1:connectsThrough <urn:nrel_example/name_04e4b737> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/AEROBIC_JUNCTION> .
 
-bldg:out1_5ac62416 a ns1:OutletConnectionPoint ;
+<urn:nrel_example/out1_8c25378b> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
-    ns1:hasMedium ns1:Medium-Water .
+    ns1:cnx <urn:nrel_example/SLUDGE_JUNCTION>,
+        <urn:nrel_example/name_04e4b737> ;
+    ns1:connectsThrough <urn:nrel_example/name_04e4b737> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/SLUDGE_JUNCTION> .
 
-bldg:out1_b2b1352c a ns1:OutletConnectionPoint ;
+<urn:nrel_example/out1_f5d77b70> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
-    ns1:hasMedium ns1:Medium-Water .
+    ns1:cnx <urn:nrel_example/AEROBIC_JUNCTION>,
+        <urn:nrel_example/name_5bca0a36> ;
+    ns1:connectsThrough <urn:nrel_example/name_5bca0a36> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/AEROBIC_JUNCTION> .
 
-bldg:sludge-return_86e5d4d3 a ns1:OutletConnectionPoint ;
+<urn:nrel_example/sludge-return_133cafbb> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
-    ns1:hasMedium ns1:Medium-Sludge .
+    ns1:cnx <urn:nrel_example/SETTLER>,
+        <urn:nrel_example/name_6a9fcfbf> ;
+    ns1:connectsThrough <urn:nrel_example/name_6a9fcfbf> ;
+    ns1:hasMedium ns1:Medium-Sludge ;
+    ns1:isConnectionPointOf <urn:nrel_example/SETTLER> .
 
-bldg:water-in_3f8442af a ns1:InletConnectionPoint ;
+<urn:nrel_example/water-in_2ab1dacf> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
-    ns1:hasMedium ns1:Medium-Water .
+    ns1:cnx <urn:nrel_example/SETTLER>,
+        <urn:nrel_example/name_6f3349d2> ;
+    ns1:connectsThrough <urn:nrel_example/name_6f3349d2> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/SETTLER> .
 
-bldg:water-in_4f8d0d4e a ns1:InletConnectionPoint ;
+<urn:nrel_example/water-in_772f6296> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/AEROBIC>,
+        <urn:nrel_example/name_5bca0a36> ;
+    ns1:connectsThrough <urn:nrel_example/name_5bca0a36> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/AEROBIC> .
+
+<urn:nrel_example/water-out_06d26919> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/AEROBIC>,
+        <urn:nrel_example/name_6f3349d2> ;
+    ns1:connectsThrough <urn:nrel_example/name_6f3349d2> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/AEROBIC> .
+
+<urn:nrel_example/name_04e4b737> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/in2_a251d52f>,
+        <urn:nrel_example/out1_8c25378b> ;
+    ns1:connectsAt <urn:nrel_example/in2_a251d52f>,
+        <urn:nrel_example/out1_8c25378b> ;
+    ns1:connectsFrom <urn:nrel_example/SLUDGE_JUNCTION> ;
+    ns1:connectsTo <urn:nrel_example/AEROBIC_JUNCTION> ;
     ns1:hasMedium ns1:Medium-Water .
 
-bldg:water-out_eb2cd0a6 a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
+<urn:nrel_example/name_5bca0a36> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/out1_f5d77b70>,
+        <urn:nrel_example/water-in_772f6296> ;
+    ns1:connectsAt <urn:nrel_example/out1_f5d77b70>,
+        <urn:nrel_example/water-in_772f6296> ;
+    ns1:connectsFrom <urn:nrel_example/AEROBIC_JUNCTION> ;
+    ns1:connectsTo <urn:nrel_example/AEROBIC> ;
     ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_6a9fcfbf> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/in1_fe06b9ea>,
+        <urn:nrel_example/sludge-return_133cafbb> ;
+    ns1:connectsAt <urn:nrel_example/in1_fe06b9ea>,
+        <urn:nrel_example/sludge-return_133cafbb> ;
+    ns1:connectsFrom <urn:nrel_example/SETTLER> ;
+    ns1:connectsTo <urn:nrel_example/SLUDGE_JUNCTION> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_6f3349d2> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_2ab1dacf>,
+        <urn:nrel_example/water-out_06d26919> ;
+    ns1:connectsAt <urn:nrel_example/water-in_2ab1dacf>,
+        <urn:nrel_example/water-out_06d26919> ;
+    ns1:connectsFrom <urn:nrel_example/AEROBIC> ;
+    ns1:connectsTo <urn:nrel_example/SETTLER> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/AEROBIC_JUNCTION> a ns1:Junction ;
+    rdfs:label "Junction" ;
+    ns1:cnx <urn:nrel_example/in1_cb1a8751>,
+        <urn:nrel_example/in2_a251d52f>,
+        <urn:nrel_example/out1_f5d77b70> ;
+    ns1:connectedThrough <urn:nrel_example/name_04e4b737>,
+        <urn:nrel_example/name_5bca0a36> ;
+    ns1:connectedTo <urn:nrel_example/AEROBIC> ;
+    ns1:hasConnectionPoint <urn:nrel_example/in1_cb1a8751>,
+        <urn:nrel_example/in2_a251d52f>,
+        <urn:nrel_example/out1_f5d77b70> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/SLUDGE_JUNCTION> a ns1:Junction ;
+    rdfs:label "Junction" ;
+    ns1:cnx <urn:nrel_example/in1_fe06b9ea>,
+        <urn:nrel_example/out1_8c25378b>,
+        <urn:nrel_example/out2_596d821c> ;
+    ns1:connectedFrom <urn:nrel_example/SETTLER> ;
+    ns1:connectedThrough <urn:nrel_example/name_04e4b737>,
+        <urn:nrel_example/name_6a9fcfbf> ;
+    ns1:hasConnectionPoint <urn:nrel_example/in1_fe06b9ea>,
+        <urn:nrel_example/out1_8c25378b>,
+        <urn:nrel_example/out2_596d821c> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/AEROBIC> a ns1:AerobicProcessUnit ;
+    rdfs:label "AerobicProcessUnit" ;
+    ns1:cnx <urn:nrel_example/aerobic-recycle_d64202c7>,
+        <urn:nrel_example/water-in_772f6296>,
+        <urn:nrel_example/water-out_06d26919> ;
+    ns1:connectedThrough <urn:nrel_example/name_5bca0a36>,
+        <urn:nrel_example/name_6f3349d2> ;
+    ns1:connectedTo <urn:nrel_example/SETTLER> ;
+    ns1:hasConnectionPoint <urn:nrel_example/aerobic-recycle_d64202c7>,
+        <urn:nrel_example/water-in_772f6296>,
+        <urn:nrel_example/water-out_06d26919> .
+
+<urn:nrel_example/SETTLER> a ns1:Settler ;
+    rdfs:label "Settler" ;
+    ns1:cnx <urn:nrel_example/sludge-return_133cafbb>,
+        <urn:nrel_example/water-in_2ab1dacf>,
+        <urn:nrel_example/water-out_70600ffd> ;
+    ns1:connectedFrom <urn:nrel_example/AEROBIC> ;
+    ns1:connectedThrough <urn:nrel_example/name_6a9fcfbf>,
+        <urn:nrel_example/name_6f3349d2> ;
+    ns1:hasConnectionPoint <urn:nrel_example/sludge-return_133cafbb>,
+        <urn:nrel_example/water-in_2ab1dacf>,
+        <urn:nrel_example/water-out_70600ffd> .
 

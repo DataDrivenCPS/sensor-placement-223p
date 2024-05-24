@@ -6,7 +6,7 @@ from rdflib import Namespace
 from utils import write_to_file
 
 # setup our buildingmotif instance
-bm = BuildingMOTIF("sqlite://")
+bm = BuildingMOTIF("sqlite://", shacl_engine="topquadrant")
 
 # create the model w/ a namespace
 BLDG = Namespace("urn:nrel_example/")
