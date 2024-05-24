@@ -16,6 +16,7 @@ bldg.graph.bind("bldg", BLDG)
 
 nrel = Library.load(directory="BuildingMOTIF/libraries/ashrae/223p/nrel-templates")
 water = Library.load(directory="water-templates")
+s223 = Library.load(ontology_graph="BuildingMOTIF/libraries/ashrae/223p/ontology/223p.ttl")
 
 
 def pipe(from_cp, to_cp):
@@ -52,5 +53,6 @@ pipe(aerobic_junction["out1"], aerobic["water-in"])
 pipe(sludge_junction["out1"], aerobic_junction["in2"])
 
 bldg.add_graph(ctx.compile())
-bldg.graph.serialize("models/kv1.ttl", format="turtle")
-write_to_file(bldg.graph, "models/kv1.png")
+graph = bldg.compile([s223.get_shape_collection()])
+graph.serialize("models/kv1.ttl", format="turtle")
+write_to_file(graph, "models/kv1.png")

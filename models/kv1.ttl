@@ -7,98 +7,103 @@ bldg: a owl:Ontology .
 
 bldg:AEROBIC a ns1:AerobicProcessUnit ;
     rdfs:label "AerobicProcessUnit" ;
-    ns1:hasConnectionPoint bldg:water-in_44e39752,
-        bldg:water-out_2b5dc24c .
+    ns1:hasConnectionPoint bldg:aerobic-recycle_8abf7008,
+        bldg:water-in_3f8442af,
+        bldg:water-out_eb2cd0a6 .
 
 bldg:AEROBIC_JUNCTION a ns1:Junction ;
     rdfs:label "Junction" ;
-    ns1:cnx bldg:in1_479ec9c1,
-        bldg:in2_483c6f4a,
-        bldg:out1_58fc5c1d ;
+    ns1:cnx bldg:in1_c00e3679,
+        bldg:in2_102acc62,
+        bldg:out1_5ac62416 ;
     ns1:hasMedium ns1:Medium-Water .
 
 bldg:SETTLER a ns1:Settler ;
     rdfs:label "Settler" ;
-    ns1:hasConnectionPoint bldg:sludge-return_d1a826fb,
-        bldg:water-in_587c75ab,
-        bldg:water-out_0454cd1c .
+    ns1:hasConnectionPoint bldg:sludge-return_86e5d4d3,
+        bldg:water-in_4f8d0d4e,
+        bldg:water-out_d361ce0d .
 
 bldg:SLUDGE_JUNCTION a ns1:Junction ;
     rdfs:label "Junction" ;
-    ns1:cnx bldg:in1_97843136,
-        bldg:out1_bd63b588,
-        bldg:out2_a71a8ee5 ;
+    ns1:cnx bldg:in1_19862142,
+        bldg:out1_b2b1352c,
+        bldg:out2_ffc1c044 ;
     ns1:hasMedium ns1:Medium-Water .
 
-bldg:name_0197bf3c a ns1:Pipe ;
+bldg:name_8721ad50 a ns1:Pipe ;
     rdfs:label "Pipe" ;
-    ns1:cnx bldg:water-in_587c75ab,
-        bldg:water-out_2b5dc24c ;
+    ns1:cnx bldg:in2_102acc62,
+        bldg:out1_b2b1352c ;
     ns1:hasMedium ns1:Medium-Water .
 
-bldg:name_b46057a6 a ns1:Pipe ;
+bldg:name_9b839c03 a ns1:Pipe ;
     rdfs:label "Pipe" ;
-    ns1:cnx bldg:in1_97843136,
-        bldg:sludge-return_d1a826fb ;
+    ns1:cnx bldg:water-in_4f8d0d4e,
+        bldg:water-out_eb2cd0a6 ;
     ns1:hasMedium ns1:Medium-Water .
 
-bldg:name_bdc65c6a a ns1:Pipe ;
+bldg:name_a2f660ea a ns1:Pipe ;
     rdfs:label "Pipe" ;
-    ns1:cnx bldg:out1_58fc5c1d,
-        bldg:water-in_44e39752 ;
+    ns1:cnx bldg:in1_19862142,
+        bldg:sludge-return_86e5d4d3 ;
     ns1:hasMedium ns1:Medium-Water .
 
-bldg:name_f8cff666 a ns1:Pipe ;
+bldg:name_af848acf a ns1:Pipe ;
     rdfs:label "Pipe" ;
-    ns1:cnx bldg:in2_483c6f4a,
-        bldg:out1_bd63b588 ;
+    ns1:cnx bldg:out1_5ac62416,
+        bldg:water-in_3f8442af ;
     ns1:hasMedium ns1:Medium-Water .
 
 ns1:AerobicProcessUnit rdfs:subClassOf ns1:Equipment .
 
 ns1:Settler rdfs:subClassOf ns1:Equipment .
 
-bldg:in1_479ec9c1 a ns1:InletConnectionPoint ;
+bldg:aerobic-recycle_8abf7008 a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:hasMedium ns1:Medium-Water .
+
+bldg:in1_c00e3679 a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
     ns1:hasMedium ns1:Medium-Water .
 
-bldg:out2_a71a8ee5 a ns1:OutletConnectionPoint ;
+bldg:out2_ffc1c044 a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
     ns1:hasMedium ns1:Medium-Water .
 
-bldg:water-out_0454cd1c a ns1:OutletConnectionPoint ;
+bldg:water-out_d361ce0d a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
     ns1:hasMedium ns1:Medium-Water .
 
-bldg:in1_97843136 a ns1:InletConnectionPoint ;
+bldg:in1_19862142 a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
     ns1:hasMedium ns1:Medium-Water .
 
-bldg:in2_483c6f4a a ns1:InletConnectionPoint ;
+bldg:in2_102acc62 a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
     ns1:hasMedium ns1:Medium-Water .
 
-bldg:out1_58fc5c1d a ns1:OutletConnectionPoint ;
+bldg:out1_5ac62416 a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
     ns1:hasMedium ns1:Medium-Water .
 
-bldg:out1_bd63b588 a ns1:OutletConnectionPoint ;
+bldg:out1_b2b1352c a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
     ns1:hasMedium ns1:Medium-Water .
 
-bldg:sludge-return_d1a826fb a ns1:OutletConnectionPoint ;
+bldg:sludge-return_86e5d4d3 a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
     ns1:hasMedium ns1:Medium-Sludge .
 
-bldg:water-in_44e39752 a ns1:InletConnectionPoint ;
+bldg:water-in_3f8442af a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
     ns1:hasMedium ns1:Medium-Water .
 
-bldg:water-in_587c75ab a ns1:InletConnectionPoint ;
+bldg:water-in_4f8d0d4e a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
     ns1:hasMedium ns1:Medium-Water .
 
-bldg:water-out_2b5dc24c a ns1:OutletConnectionPoint ;
+bldg:water-out_eb2cd0a6 a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
     ns1:hasMedium ns1:Medium-Water .
 
