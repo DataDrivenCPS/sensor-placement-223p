@@ -16,7 +16,7 @@ bldg.graph.bind("bldg", BLDG)
 
 nrel = Library.load(directory="BuildingMOTIF/libraries/ashrae/223p/nrel-templates")
 water = Library.load(directory="water-templates")
-s223 = Library.load(ontology_graph="BuildingMOTIF/libraries/ashrae/223p/ontology/223p.ttl")
+s223 = Library.load(ontology_graph="223p.ttl")
 
 
 def pipe(from_cp, to_cp):
