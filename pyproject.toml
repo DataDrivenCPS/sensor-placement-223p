@@ -1,6 +1,3 @@
-project = { dependencies = [
-    "matplotlib>=3.9.0",
-] }
 [tool.poetry]
 name = "sensor-placement"
 version = "0.1.0"
