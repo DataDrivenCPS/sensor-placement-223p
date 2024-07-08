@@ -6,6 +6,7 @@ aerobic-process-unit:
     s223:AerobicProcessUnit rdfs:subClassOf s223:Equipment .
     P:name a s223:AerobicProcessUnit ;
       s223:hasConnectionPoint P:water-in, P:water-out, P:aerobic-recycle .
+  optional: ['aerobic-recycle']
   dependencies:
   - template: water-inlet-cp
     library: nrel-templates
