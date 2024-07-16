@@ -3,6 +3,8 @@ import rdflib
 import subprocess
 import networkx as nx
 from dataclasses import dataclass
+#from BuildingMOTIF.buildingmotif import BuildingMOTIF
+#from BuildingMOTIF.buildingmotif.dataclasses import Library, Model
 from buildingmotif import BuildingMOTIF
 from buildingmotif.dataclasses import Library, Model
 from networkx.drawing.nx_pydot import to_pydot
@@ -28,8 +30,8 @@ class Rule():
             if (row[self.from_var], rdflib.RDF.type, rdflib.URIRef("http://data.ashrae.org/standard223#OutletConnectionPoint")) in src_graph:
                 from_var, to_var = to_var, from_var
             dst_graph.add_edge(from_var, to_var, label=edge_var)
-
-
+ 
+     
 # default case where two things are connected via a connection
 pipe = Rule(
     query="""
@@ -53,22 +55,49 @@ unconnected_point = Rule(
         }
     }""",
 )
+unconnected_point2 = Rule(
+    query="""
+    PREFIX s223: <http://data.ashrae.org/standard223#>
+    SELECT ?from ?conn ?to WHERE {
+        {
+            ?to_orig rdf:type s223:OutletConnectionPoint .
+            ?from s223:hasConnectionPoint ?to_orig .
+            FILTER NOT EXISTS {
+                ?to_orig s223:connectsThrough ?conn_orig
+            }
+            BIND("connects_to_env" AS ?conn)
+            BIND("Environment" AS ?to)
+        }
+        UNION 
+        {
+            ?from_orig rdf:type s223:InletConnectionPoint .
+            ?to s223:hasConnectionPoint ?from_orig .
+            FILTER NOT EXISTS {
+                ?from_orig s223:connectsThrough ?conn_orig
+            }
+            BIND("connects_to_env" AS ?conn)
+            BIND("Environment" AS ?from)
+        }
+    }""",
+)
 
 G = nx.DiGraph()
 
 bm = BuildingMOTIF("sqlite://", shacl_engine="topquadrant")
-s223 = Library.load(ontology_graph="223p.ttl")
+#s223 = Library.load(ontology_graph="/Users/avia/Desktop/Testt/sensor-placement-223p/223p.ttl")
 
 BLDG = Namespace("urn:nrel_example/")
 bldg = Model.create(BLDG)
 bldg.graph.bind("bldg", BLDG)
-bldg.graph.parse("models/kv1.ttl") # change to kv1.ttl, kv2.ttl
+bldg.graph.parse("models/kv2.ttl") # change to kv1.ttl, kv2.ttl
 
-bldg.graph.serialize("output.ttl")
+bldg.graph.serialize("output2.ttl")
 pipe.insert_nx(G, bldg.graph)
-unconnected_point.insert_nx(G, bldg.graph)
+#unconnected_point.insert_nx(G, bldg.graph)
+unconnected_point2.insert_nx(G, bldg.graph)
 #unconnected_to.insert_nx(G, bldg.graph.query(unconnected_to.query))
 
+print("Graph edges after applying rules:")
 print(G.edges(data=True))
 
 # clean all nodes/edges from the pydot graph to only have [a-zA-Z0-9_] characters.
@@ -79,4 +108,4 @@ G = nx.relabel_nodes(G, {node: node.replace(" ", "_").replace("#", "_") for node
 # draw networkx graph in png with force-directed layout
 plt.figure(figsize=(12, 12))
 pydot_graph = to_pydot(G)
-pydot_graph.write_png('output.png', prog='dot')
+pydot_graph.write_png('output2.png', prog='dot')
