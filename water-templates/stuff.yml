@@ -42,7 +42,7 @@ anoxic:
     @prefix P: <urn:___param___#> .
     @prefix s223: <http://data.ashrae.org/standard223#> .
     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-    s223:Settler rdfs:subClassOf s223:Equipment .
+    s223:Anoxic rdfs:subClassOf s223:Equipment .
     P:name a s223:Anoxic ;
       s223:hasConnectionPoint P:water-in, P:water-out, P:aerobic-recycle .
   dependencies:
