@@ -18,3 +18,10 @@ mkdir -p models/
 poetry run python kv-system-1.py
 poetry run python kv-system-2.py
 ```
+
+## Models
+
+### Activated Sludge Model (ASM)
+[ASM1](https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/ASM1.html)
+[MODEL CODE](./ASM.py)
+[RESULT GRAPH](./models/asm.png)
