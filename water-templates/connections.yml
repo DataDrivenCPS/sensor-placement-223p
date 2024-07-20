@@ -1,0 +1,133 @@
+biogas-inlet-cp:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:InletConnectionPoint ;
+      s223:mapsTo P:mapsto ;
+      s223:hasMedium s223:Medium-Biogas .
+    P:mapsto a s223:InletConnectionPoint ;
+      s223:hasMedium s223:Medium-Biogas .
+  optional: ["mapsto"]
+
+biogas-outlet-cp:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:OutletConnectionPoint ;
+      s223:mapsTo P:mapsto ;
+      s223:hasMedium s223:Medium-Biogas .
+    P:mapsto a s223:OutletConnectionPoint ;
+      s223:hasMedium s223:Medium-Biogas .
+  optional: ["mapsto"]
+
+electricity-inlet-cp:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:InletConnectionPoint ;
+      s223:mapsTo P:mapsto ;
+      s223:hasMedium s223:Medium-Electricity .
+    P:mapsto a s223:InletConnectionPoint ;
+      s223:hasMedium s223:Medium-Electricity .
+  optional: ["mapsto"]
+
+electricity-outlet-cp:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:OutletConnectionPoint ;
+      s223:mapsTo P:mapsto ;
+      s223:hasMedium s223:Medium-Electricity .
+    P:mapsto a s223:OutletConnectionPoint ;
+      s223:hasMedium s223:Medium-Electricity .
+  optional: ["mapsto"]
+
+fog-inlet-cp:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:InletConnectionPoint ;
+      s223:mapsTo P:mapsto ;
+      s223:hasMedium s223:Medium-FOG .
+    P:mapsto a s223:InletConnectionPoint ;
+      s223:hasMedium s223:Medium-FOG .
+  optional: ["mapsto"]
+
+fog-outlet-cp:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:OutletConnectionPoint ;
+      s223:mapsTo P:mapsto ;
+      s223:hasMedium s223:Medium-FOG .
+    P:mapsto a s223:OutletConnectionPoint ;
+      s223:hasMedium s223:Medium-FOG .
+  optional: ["mapsto"]
+
+untreated-sewage-inlet-cp:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:InletConnectionPoint ;
+      s223:mapsTo P:mapsto ;
+      s223:hasMedium s223:Medium-Water .
+    P:mapsto a s223:InletConnectionPoint ;
+      s223:hasMedium s223:Medium-Water .
+  optional: ["mapsto"]
+
+untreated-sewage-outlet-cp:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:OutletConnectionPoint ;
+      s223:mapsTo P:mapsto ;
+      s223:hasMedium s223:Medium-Water .
+    P:mapsto a s223:OutletConnectionPoint ;
+      s223:hasMedium s223:Medium-Water .
+  optional: ["mapsto"]
+
+treated-sewage-inlet-cp:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:InletConnectionPoint ;
+      s223:mapsTo P:mapsto ;
+      s223:hasMedium s223:Medium-Water .
+    P:mapsto a s223:InletConnectionPoint ;
+      s223:hasMedium s223:Medium-Water .
+  optional: ["mapsto"]
+
+treated-sewage-outlet-cp:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:OutletConnectionPoint ;
+      s223:mapsTo P:mapsto ;
+      s223:hasMedium s223:Medium-Water .
+    P:mapsto a s223:OutletConnectionPoint ;
+      s223:hasMedium s223:Medium-Water .
+  optional: ["mapsto"]
+
+sludge-inlet-cp:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:InletConnectionPoint ;
+      s223:mapsTo P:mapsto ;
+      s223:hasMedium s223:Medium-Sludge .
+    P:mapsto a s223:InletConnectionPoint ;
+      s223:hasMedium s223:Medium-Sludge .
+  optional: ["mapsto"]
+
+sludge-outlet-cp:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:OutletConnectionPoint ;
+      s223:mapsTo P:mapsto ;
+      s223:hasMedium s223:Medium-Sludge .
+    P:mapsto a s223:OutletConnectionPoint ;
+      s223:hasMedium s223:Medium-Sludge .
+  optional: ["mapsto"]
+
+

@@ -15,7 +15,7 @@ bind_prefixes(bldg.graph)
 bldg.graph.bind("bldg", BLDG)
 
 nrel = Library.load(directory="BuildingMOTIF/libraries/ashrae/223p/nrel-templates")
-water = Library.load(directory="water-templates-2")
+water = Library.load(directory="water-templates")
 s223 = Library.load(ontology_graph="223p.ttl")
 
 

@@ -67,7 +67,7 @@ anoxic2:
     s223:Anoxic rdfs:subClassOf s223:Equipment .
     P:name a s223:Anoxic ;
       s223:contains P:mixerid ;
-      s223:hasConnectionPoint P:water-in, P:water-out, P:aerobic-recycle .
+      s223:hasConnectionPoint P:water-in, P:water-out .
   dependencies:
   - template: water-inlet-cp
     library: nrel-templates
@@ -83,7 +83,7 @@ junction-3to1:
   body: >
     @prefix P: <urn:___param___#> .
     @prefix s223: <http://data.ashrae.org/standard223#> .
-    P:name a s223:Junction ;
+    P:name a s223:Junction2 ;
       s223:hasMedium s223:Medium-Water ;
       s223:cnx P:in1, P:in2, P:in3, P:out1 .
   dependencies:

@@ -23,5 +23,16 @@ poetry run python kv-system-2.py
 
 ### Activated Sludge Model (ASM)
 [ASM1](https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/ASM1.html)
+
 [MODEL CODE](./ASM.py)
+
 [RESULT GRAPH](./models/asm.png)
+
+### Wastewater Treatement Plant (WWTP)
+"I have a publicly available WWTP model in PyPES of a dummy system" -Fletcher
+
+[WWTP](https://github.com/we3lab/pype-schema/blob/main/pype_schema/data/sample.json)
+
+[MODEL CODE](WWTP.py)
+
+[RESULT GRAPH](./models/wwtp.png)

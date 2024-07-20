@@ -1,0 +1,333 @@
+bar-screen:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:BarScreen rdfs:subClassOf s223:Equipment .
+    P:name a s223:BarScreen ;
+      s223:hasConnectionPoint P:untreated-sewage-in, P:untreated-sewage-out .
+  dependencies:
+  - template: untreated-sewage-inlet-cp
+    library: water-templates
+    args: {"name": "untreated-sewage-in"}
+  - template: untreated-sewage-outlet-cp
+    library: water-templates
+    args: {"name": "untreated-sewage-out"}
+
+lift-pump:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:LiftPump rdfs:subClassOf s223:Equipment .
+    P:name a s223:LiftPump ;
+      s223:hasConnectionPoint P:untreated-sewage-in, P:untreated-sewage-out .
+  dependencies:
+  - template: untreated-sewage-inlet-cp
+    library: water-templates
+    args: {"name": "untreated-sewage-in"}
+  - template: untreated-sewage-outlet-cp
+    library: water-templates
+    args: {"name": "untreated-sewage-out"}
+
+grit-chamber:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:GritChamber rdfs:subClassOf s223:Equipment .
+    P:name a s223:GritChamber ;
+      s223:hasConnectionPoint P:untreated-sewage-in, P:untreated-sewage-out .
+  dependencies:
+  - template: untreated-sewage-inlet-cp
+    library: water-templates
+    args: {"name": "untreated-sewage-in"}
+  - template: untreated-sewage-outlet-cp
+    library: water-templates
+    args: {"name": "untreated-sewage-out"}
+
+clarifier2:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:Clarifier rdfs:subClassOf s223:Equipment .
+    P:name a s223:Clarifier ;
+      s223:hasConnectionPoint P:untreated-sewage-in, P:untreated-sewage-out, P:sludge-out .
+  dependencies:
+  - template: untreated-sewage-inlet-cp
+    library: water-templates
+    args: {"name": "untreated-sewage-in"}
+  - template: untreated-sewage-outlet-cp
+    library: water-templates
+    args: {"name": "untreated-sewage-out"}
+  - template: sludge-outlet-cp
+    library: water-templates
+    args: {"name": "sludge-out"}
+
+
+aeration-basin:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:AerationBasin rdfs:subClassOf s223:Equipment .
+    P:name a s223:AerationBasin ;
+      s223:hasConnectionPoint P:untreated-sewage-in, P:untreated-sewage-out, P:sludge-in .
+  dependencies:
+  - template: untreated-sewage-inlet-cp
+    library: water-templates
+    args: {"name": "untreated-sewage-in"}
+  - template: untreated-sewage-outlet-cp
+    library: water-templates
+    args: {"name": "untreated-sewage-out"}
+  - template: sludge-inlet-cp
+    library: water-templates
+    args: {"name": "sludge-in"}
+
+RAS-pump:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:RASpump rdfs:subClassOf s223:Equipment .
+    P:name a s223:RASpump ;
+      s223:hasConnectionPoint P:sludge-in, P:sludge-out .
+  dependencies:
+  - template: sludge-inlet-cp
+    library: water-templates
+    args: {"name": "sludge-in"}
+  - template: sludge-outlet-cp
+    library: water-templates
+    args: {"name": "sludge-out"}
+
+clarifier3:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:Clarifier rdfs:subClassOf s223:Equipment .
+    P:name a s223:Clarifier ;
+      s223:hasConnectionPoint P:untreated-sewage-in, P:untreated-sewage-out, P:sludge-out1, P:sludge-out2 .
+  dependencies:
+  - template: untreated-sewage-inlet-cp
+    library: water-templates
+    args: {"name": "untreated-sewage-in"}
+  - template: untreated-sewage-outlet-cp
+    library: water-templates
+    args: {"name": "untreated-sewage-out"}
+  - template: sludge-outlet-cp
+    library: water-templates
+    args: {"name": "sludge-out1"}
+  - template: sludge-outlet-cp
+    library: water-templates
+    args: {"name": "sludge-out2"}
+
+gravity-thickener:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:GravityThickener rdfs:subClassOf s223:Equipment .
+    P:name a s223:GravityThickener ;
+      s223:hasConnectionPoint P:sludge-in1, P:sludge-in2, P:sludge-out .
+  dependencies:
+  - template: sludge-inlet-cp
+    library: water-templates
+    args: {"name": "sludge-in1"}
+  - template: sludge-inlet-cp
+    library: water-templates
+    args: {"name": "sludge-in2"}
+  - template: sludge-outlet-cp
+    library: water-templates
+    args: {"name": "sludge-out"}
+
+contact-chamber:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:ContactChamber rdfs:subClassOf s223:Equipment .
+    P:name a s223:ContactChamber ;
+      s223:hasConnectionPoint P:untreated-sewage-in, P:treated-sewage-out .
+  dependencies:
+  - template: untreated-sewage-inlet-cp
+    library: water-templates
+    args: {"name": "untreated-sewage-in"}
+  - template: treated-sewage-outlet-cp
+    library: water-templates
+    args: {"name": "treated-sewage-out"}
+
+anaerobic-digester:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:AnaerobicDigester rdfs:subClassOf s223:Equipment .
+    P:name a s223:AnaerobicDigester ;
+      s223:hasConnectionPoint P:sludge-in, P:fog-in, P:biogas-out .
+  dependencies:
+  - template: sludge-inlet-cp
+    library: water-templates
+    args: {"name": "sludge-in"}
+  - template: fog-inlet-cp
+    library: water-templates
+    args: {"name": "fog-in"}
+  - template: biogas-outlet-cp
+    library: water-templates
+    args: {"name": "biogas-out"}
+
+fog-tank:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:FOGTank rdfs:subClassOf s223:Equipment .
+    P:name a s223:FOGTank ;
+      s223:hasConnectionPoint P:fog-out .
+  dependencies:
+  - template: fog-outlet-cp
+    library: water-templates
+    args: {"name": "fog-out"}
+
+fog-pump:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:FOGPump rdfs:subClassOf s223:Equipment .
+    P:name a s223:FOGPump ;
+      s223:hasConnectionPoint P:fog-in, P:fog-out .
+  dependencies:
+  - template: fog-inlet-cp
+    library: water-templates
+    args: {"name": "fog-in"}
+  - template: fog-outlet-cp
+    library: water-templates
+    args: {"name": "fog-out"}
+
+conditioner:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:Conditioner rdfs:subClassOf s223:Equipment .
+    P:name a s223:Conditioner ;
+      s223:hasConnectionPoint P:biogas-in, P:biogas-out1, P:biogas-out2 .
+  dependencies:
+  - template: biogas-inlet-cp
+    library: water-templates
+    args: {"name": "biogas-in"}
+  - template: biogas-outlet-cp
+    library: water-templates
+    args: {"name": "biogas-out1"}
+  - template: biogas-outlet-cp
+    library: water-templates
+    args: {"name": "biogas-out2"}
+
+flare:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:Flare rdfs:subClassOf s223:Equipment .
+    P:name a s223:Flare ;
+      s223:hasConnectionPoint P:biogas-in .
+  dependencies:
+  - template: biogas-inlet-cp
+    library: water-templates
+    args: {"name": "biogas-in"}
+
+cogenerator:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:Cogenerator rdfs:subClassOf s223:Equipment .
+    P:name a s223:Cogenerator ;
+      s223:hasConnectionPoint P:biogas-in, P:electricity-out .
+  dependencies:
+  - template: biogas-inlet-cp
+    library: water-templates
+    args: {"name": "biogas-in"}
+  - template: electricity-outlet-cp
+    library: water-templates
+    args: {"name": "electricity-out"}
+
+virtual-demand:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:VirtualDemand rdfs:subClassOf s223:Equipment .
+    P:name a s223:VirtualDemand ;
+      s223:hasConnectionPoint P:electricity-in1, P:electricity-in2, P:electricity-in3, P:electricity-out .
+  dependencies:
+  - template: electricity-inlet-cp
+    library: water-templates
+    args: {"name": "electricity-in1"}
+  - template: electricity-inlet-cp
+    library: water-templates
+    args: {"name": "electricity-in2"}
+  - template: electricity-inlet-cp
+    library: water-templates
+    args: {"name": "electricity-in3"}
+  - template: electricity-outlet-cp
+    library: water-templates
+    args: {"name": "electricity-out"}
+
+battery:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:Battery rdfs:subClassOf s223:Equipment .
+    P:name a s223:Battery ;
+      s223:hasConnectionPoint P:electricity-in, P:electricity-out .
+  dependencies:
+  - template: electricity-inlet-cp
+    library: water-templates
+    args: {"name": "electricity-in"}
+  - template: electricity-outlet-cp
+    library: water-templates
+    args: {"name": "electricity-out"}
+
+pipe-water:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:Pipe ;
+      s223:hasMedium s223:Medium-Water ;
+      s223:cnx P:a, P:b .
+
+pipe-biogas:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:Pipe ;
+      s223:hasMedium s223:Medium-Biogas ;
+      s223:cnx P:a, P:b .
+
+pipe-sludge:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:Pipe ;
+      s223:hasMedium s223:Medium-Sludge ;
+      s223:cnx P:a, P:b .
+
+pipe-fog:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:Pipe ;
+      s223:hasMedium s223:Medium-FOG ;
+      s223:cnx P:a, P:b .
+
+pipe-electricity:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:Pipe ;
+      s223:hasMedium s223:Medium-Electricity ;
+      s223:cnx P:a, P:b .
