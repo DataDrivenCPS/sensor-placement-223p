@@ -29,10 +29,18 @@ poetry run python kv-system-2.py
 [RESULT GRAPH](./models/asm.png)
 
 ### Wastewater Treatement Plant (WWTP)
-"I have a publicly available WWTP model in PyPES of a dummy system" -Fletcher
 
 [WWTP](https://github.com/we3lab/pype-schema/blob/main/pype_schema/data/sample.json)
 
 [MODEL CODE](WWTP.py)
 
 [RESULT GRAPH](./models/wwtp.png)
+
+### Desalination Model (DESAL)
+
+[DESAL](https://watertap.readthedocs.io/en/latest/technical_reference/flowsheets/seawater_RO_desalination.html#implementation)
+[DESAL GITHUB](https://github.com/watertap-org/watertap/blob/main/watertap/flowsheets/seawater_RO_desalination/seawater_RO_desalination.py)
+
+[MODEL CODE](./DESAL.py)
+
+[RESULT GRAPH](./models/desal.png)
