@@ -4,31 +4,35 @@
 
 <urn:nrel_example/> a owl:Ontology .
 
-ns1:BackwashSolidsHandling rdfs:subClassOf ns1:Equipment .
+ns1:BackwashPump rdfs:subClassOf ns1:Equipment .
 
-ns1:CO2-Addition rdfs:subClassOf ns1:Equipment .
+ns1:BackwashThickener rdfs:subClassOf ns1:Equipment .
 
-ns1:CartridgeFiltration rdfs:subClassOf ns1:Equipment .
+ns1:CO2Canister rdfs:subClassOf ns1:Equipment .
 
-ns1:Chlorination rdfs:subClassOf ns1:Equipment .
+ns1:CartridgeFilter rdfs:subClassOf ns1:Equipment .
+
+ns1:ChlorinationBasin rdfs:subClassOf ns1:Equipment .
 
 ns1:Disposal rdfs:subClassOf ns1:Equipment .
 
-ns1:EnergyRecoveryDevice rdfs:subClassOf ns1:Equipment .
-
-ns1:Feed rdfs:subClassOf ns1:Equipment .
+ns1:Dumpster rdfs:subClassOf ns1:Equipment .
 
 ns1:Intake rdfs:subClassOf ns1:Equipment .
 
-ns1:Landfill rdfs:subClassOf ns1:Equipment .
-
-ns1:MediaFiltration rdfs:subClassOf ns1:Equipment .
+ns1:MediaFilter rdfs:subClassOf ns1:Equipment .
 
 ns1:Mixer2 rdfs:subClassOf ns1:Equipment .
 
 ns1:MunicipalWater rdfs:subClassOf ns1:Equipment .
 
+ns1:Ocean rdfs:subClassOf ns1:Connectable .
+
+ns1:OzoneGenerator rdfs:subClassOf ns1:Equipment .
+
 ns1:PressureExchanger rdfs:subClassOf ns1:Equipment .
+
+ns1:ReverseOsmosis rdfs:subClassOf ns1:Equipment .
 
 ns1:Separator rdfs:subClassOf ns1:Equipment .
 
@@ -36,1182 +40,1530 @@ ns1:StaticMixer rdfs:subClassOf ns1:Equipment .
 
 ns1:UV-AOP rdfs:subClassOf ns1:Equipment .
 
-ns1:ReverseOsmosis rdfs:subClassOf ns1:Equipment .
+ns1:UVLight rdfs:subClassOf ns1:Equipment .
 
-ns1:ChemicalAddition rdfs:subClassOf ns1:Equipment .
+<urn:nrel_example/uvlightid_5988d601> a ns1:UVLight ;
+    rdfs:label "UVLight" .
 
 ns1:Pump rdfs:subClassOf ns1:Equipment .
 
 ns1:StorageTank rdfs:subClassOf ns1:Equipment .
 
-<urn:nrel_example/FEED> a ns1:Feed ;
-    rdfs:label "Feed" ;
-    ns1:cnx <urn:nrel_example/water-out_cba97b9d> ;
-    ns1:connectedThrough <urn:nrel_example/name_dff6d2e6> ;
-    ns1:connectedTo <urn:nrel_example/INTAKE> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-out_cba97b9d> .
+ns1:ChemicalTank rdfs:subClassOf ns1:Equipment .
 
-<urn:nrel_example/LANDFILL> a ns1:Landfill ;
-    rdfs:label "Landfill" ;
-    ns1:cnx <urn:nrel_example/waste-in_a1a96dbd> ;
-    ns1:connectedFrom <urn:nrel_example/BACKWASH> ;
-    ns1:connectedThrough <urn:nrel_example/name_27daffe7> ;
-    ns1:hasConnectionPoint <urn:nrel_example/waste-in_a1a96dbd> .
+<urn:nrel_example/ANTI_SCALANT_TANK> a ns1:ChemicalTank ;
+    rdfs:label "ChemicalTank" ;
+    ns1:cnx <urn:nrel_example/chemical-out_b526dbac> ;
+    ns1:connectedThrough <urn:nrel_example/name_0536fd84> ;
+    ns1:connectedTo <urn:nrel_example/ANTI_SCALANT_PUMP> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-out_b526dbac> .
+
+<urn:nrel_example/CHLORINE_TANK> a ns1:ChemicalTank ;
+    rdfs:label "ChemicalTank" ;
+    ns1:cnx <urn:nrel_example/chemical-out_cadd25c2> ;
+    ns1:connectedThrough <urn:nrel_example/name_abc1c875> ;
+    ns1:connectedTo <urn:nrel_example/CHLORINE_PUMP> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-out_cadd25c2> .
+
+<urn:nrel_example/CO2_CANISTER> a ns1:CO2Canister ;
+    rdfs:label "CO2Canister" ;
+    ns1:cnx <urn:nrel_example/chemical-out_30291eac> ;
+    ns1:connectedThrough <urn:nrel_example/name_18d611bf> ;
+    ns1:connectedTo <urn:nrel_example/CO2_PUMP> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-out_30291eac> .
+
+<urn:nrel_example/DUMPSTER> a ns1:Dumpster ;
+    rdfs:label "Dumpster" ;
+    ns1:cnx <urn:nrel_example/waste-in_a4dac367> ;
+    ns1:connectedFrom <urn:nrel_example/BACKWASH_THICKENER> ;
+    ns1:connectedThrough <urn:nrel_example/name_824e03df> ;
+    ns1:hasConnectionPoint <urn:nrel_example/waste-in_a4dac367> .
+
+<urn:nrel_example/FECL3_TANK> a ns1:ChemicalTank ;
+    rdfs:label "ChemicalTank" ;
+    ns1:cnx <urn:nrel_example/chemical-out_9b78eef6> ;
+    ns1:connectedThrough <urn:nrel_example/name_7caf51a9> ;
+    ns1:connectedTo <urn:nrel_example/FECL3_PUMP> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-out_9b78eef6> .
+
+<urn:nrel_example/LIME_TANK> a ns1:ChemicalTank ;
+    rdfs:label "ChemicalTank" ;
+    ns1:cnx <urn:nrel_example/chemical-out_29b46a8c> ;
+    ns1:connectedThrough <urn:nrel_example/name_ca712149> ;
+    ns1:connectedTo <urn:nrel_example/LIME_PUMP> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-out_29b46a8c> .
 
 <urn:nrel_example/MUNICIPAL_WATER> a ns1:MunicipalWater ;
     rdfs:label "MunicipalWater" ;
-    ns1:cnx <urn:nrel_example/water-in_98a139a8> ;
+    ns1:cnx <urn:nrel_example/water-in_0e9e2945> ;
     ns1:connectedFrom <urn:nrel_example/STORAGE_TANK_3> ;
-    ns1:connectedThrough <urn:nrel_example/name_c1b2b64e> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_98a139a8> .
+    ns1:connectedThrough <urn:nrel_example/name_e97eb9ef> ;
+    ns1:hasConnectionPoint <urn:nrel_example/water-in_0e9e2945> .
 
-<urn:nrel_example/in1_19a1adfd> a ns1:InletConnectionPoint ;
+<urn:nrel_example/OZONE_GENERATOR> a ns1:OzoneGenerator ;
+    rdfs:label "OzoneGenerator" ;
+    ns1:cnx <urn:nrel_example/chemical-out_44b83807> ;
+    ns1:connectedThrough <urn:nrel_example/name_e73ccfcf> ;
+    ns1:connectedTo <urn:nrel_example/OZONE_PUMP> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-out_44b83807> .
+
+<urn:nrel_example/chemical-in_0b05889c> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/DESAL_JUNCTION>,
-        <urn:nrel_example/name_cc6644d1> ;
-    ns1:connectsThrough <urn:nrel_example/name_cc6644d1> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/DESAL_JUNCTION> .
+    ns1:cnx <urn:nrel_example/LIME_DOSING_POINT>,
+        <urn:nrel_example/name_f3dc828d> ;
+    ns1:connectsThrough <urn:nrel_example/name_f3dc828d> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/LIME_DOSING_POINT> .
 
-<urn:nrel_example/in1_a500acda> a ns1:InletConnectionPoint ;
+<urn:nrel_example/chemical-in_22cee4f5> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/PRETREATMENT_JUNCTION>,
-        <urn:nrel_example/name_011e97c6> ;
-    ns1:connectsThrough <urn:nrel_example/name_011e97c6> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/PRETREATMENT_JUNCTION> .
+    ns1:cnx <urn:nrel_example/CO2_PUMP>,
+        <urn:nrel_example/name_18d611bf> ;
+    ns1:connectsThrough <urn:nrel_example/name_18d611bf> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/CO2_PUMP> .
 
-<urn:nrel_example/in2_28c58a03> a ns1:InletConnectionPoint ;
+<urn:nrel_example/chemical-in_368bd531> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/DESAL_JUNCTION>,
-        <urn:nrel_example/name_49a35ac9> ;
-    ns1:connectsThrough <urn:nrel_example/name_49a35ac9> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/DESAL_JUNCTION> .
+    ns1:cnx <urn:nrel_example/CHLORINE_DOSING_POINT>,
+        <urn:nrel_example/name_9dd79501> ;
+    ns1:connectsThrough <urn:nrel_example/name_9dd79501> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/CHLORINE_DOSING_POINT> .
 
-<urn:nrel_example/out1_5cc24936> a ns1:OutletConnectionPoint ;
+<urn:nrel_example/chemical-in_7966ba68> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/FECL3_DOSING_POINT>,
+        <urn:nrel_example/name_132af972> ;
+    ns1:connectsThrough <urn:nrel_example/name_132af972> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/FECL3_DOSING_POINT> .
+
+<urn:nrel_example/chemical-in_7d8d7662> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/FECL3_PUMP>,
+        <urn:nrel_example/name_7caf51a9> ;
+    ns1:connectsThrough <urn:nrel_example/name_7caf51a9> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/FECL3_PUMP> .
+
+<urn:nrel_example/chemical-in_806320cc> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/ANTI_SCALANT_DOSING_POINT>,
+        <urn:nrel_example/name_db729074> ;
+    ns1:connectsThrough <urn:nrel_example/name_db729074> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/ANTI_SCALANT_DOSING_POINT> .
+
+<urn:nrel_example/chemical-in_9253e8e8> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/OZONE_PUMP>,
+        <urn:nrel_example/name_e73ccfcf> ;
+    ns1:connectsThrough <urn:nrel_example/name_e73ccfcf> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/OZONE_PUMP> .
+
+<urn:nrel_example/chemical-in_a8029a86> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/ANTI_SCALANT_PUMP>,
+        <urn:nrel_example/name_0536fd84> ;
+    ns1:connectsThrough <urn:nrel_example/name_0536fd84> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/ANTI_SCALANT_PUMP> .
+
+<urn:nrel_example/chemical-in_a939ae36> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/CHLORINE_PUMP>,
+        <urn:nrel_example/name_abc1c875> ;
+    ns1:connectsThrough <urn:nrel_example/name_abc1c875> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/CHLORINE_PUMP> .
+
+<urn:nrel_example/chemical-in_b8583db5> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/CO2_DOSING_POINT>,
+        <urn:nrel_example/name_0658ad8f> ;
+    ns1:connectsThrough <urn:nrel_example/name_0658ad8f> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/CO2_DOSING_POINT> .
+
+<urn:nrel_example/chemical-in_d0e4f8d1> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/OZONE_DOSING_POINT>,
+        <urn:nrel_example/name_fe371569> ;
+    ns1:connectsThrough <urn:nrel_example/name_fe371569> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/OZONE_DOSING_POINT> .
+
+<urn:nrel_example/chemical-in_d882ab0f> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/LIME_PUMP>,
+        <urn:nrel_example/name_ca712149> ;
+    ns1:connectsThrough <urn:nrel_example/name_ca712149> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/LIME_PUMP> .
+
+<urn:nrel_example/chemical-out_12cf7d9a> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/PRETREATMENT_JUNCTION>,
-        <urn:nrel_example/name_97b35d84> ;
-    ns1:connectsThrough <urn:nrel_example/name_97b35d84> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/PRETREATMENT_JUNCTION> .
+    ns1:cnx <urn:nrel_example/LIME_PUMP>,
+        <urn:nrel_example/name_f3dc828d> ;
+    ns1:connectsThrough <urn:nrel_example/name_f3dc828d> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/LIME_PUMP> .
 
-<urn:nrel_example/out1_d80f2451> a ns1:OutletConnectionPoint ;
+<urn:nrel_example/chemical-out_1cf68346> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/DESAL_JUNCTION>,
-        <urn:nrel_example/name_569fd65a> ;
-    ns1:connectsThrough <urn:nrel_example/name_569fd65a> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/DESAL_JUNCTION> .
+    ns1:cnx <urn:nrel_example/FECL3_PUMP>,
+        <urn:nrel_example/name_132af972> ;
+    ns1:connectsThrough <urn:nrel_example/name_132af972> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/FECL3_PUMP> .
 
-<urn:nrel_example/out2_a2002266> a ns1:OutletConnectionPoint ;
+<urn:nrel_example/chemical-out_1e15cb42> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/PRETREATMENT_JUNCTION>,
-        <urn:nrel_example/name_1df5d1b6> ;
-    ns1:connectsThrough <urn:nrel_example/name_1df5d1b6> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/PRETREATMENT_JUNCTION> .
+    ns1:cnx <urn:nrel_example/ANTI_SCALANT_PUMP>,
+        <urn:nrel_example/name_db729074> ;
+    ns1:connectsThrough <urn:nrel_example/name_db729074> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/ANTI_SCALANT_PUMP> .
 
-<urn:nrel_example/waste-in1_a6e0d202> a ns1:InletConnectionPoint ;
+<urn:nrel_example/chemical-out_29b46a8c> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/LIME_TANK>,
+        <urn:nrel_example/name_ca712149> ;
+    ns1:connectsThrough <urn:nrel_example/name_ca712149> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/LIME_TANK> .
+
+<urn:nrel_example/chemical-out_30291eac> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/CO2_CANISTER>,
+        <urn:nrel_example/name_18d611bf> ;
+    ns1:connectsThrough <urn:nrel_example/name_18d611bf> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/CO2_CANISTER> .
+
+<urn:nrel_example/chemical-out_44b83807> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/OZONE_GENERATOR>,
+        <urn:nrel_example/name_e73ccfcf> ;
+    ns1:connectsThrough <urn:nrel_example/name_e73ccfcf> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/OZONE_GENERATOR> .
+
+<urn:nrel_example/chemical-out_486383a2> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/OZONE_PUMP>,
+        <urn:nrel_example/name_fe371569> ;
+    ns1:connectsThrough <urn:nrel_example/name_fe371569> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/OZONE_PUMP> .
+
+<urn:nrel_example/chemical-out_9b78eef6> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/FECL3_TANK>,
+        <urn:nrel_example/name_7caf51a9> ;
+    ns1:connectsThrough <urn:nrel_example/name_7caf51a9> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/FECL3_TANK> .
+
+<urn:nrel_example/chemical-out_b526dbac> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/ANTI_SCALANT_TANK>,
+        <urn:nrel_example/name_0536fd84> ;
+    ns1:connectsThrough <urn:nrel_example/name_0536fd84> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/ANTI_SCALANT_TANK> .
+
+<urn:nrel_example/chemical-out_cadd25c2> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/CHLORINE_TANK>,
+        <urn:nrel_example/name_abc1c875> ;
+    ns1:connectsThrough <urn:nrel_example/name_abc1c875> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/CHLORINE_TANK> .
+
+<urn:nrel_example/chemical-out_e38268b4> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/CHLORINE_PUMP>,
+        <urn:nrel_example/name_9dd79501> ;
+    ns1:connectsThrough <urn:nrel_example/name_9dd79501> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/CHLORINE_PUMP> .
+
+<urn:nrel_example/chemical-out_f95efea5> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/CO2_PUMP>,
+        <urn:nrel_example/name_0658ad8f> ;
+    ns1:connectsThrough <urn:nrel_example/name_0658ad8f> ;
+    ns1:hasMedium ns1:Medium-Chemical ;
+    ns1:isConnectionPointOf <urn:nrel_example/CO2_PUMP> .
+
+<urn:nrel_example/waste-in1_65cd0a1a> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
     ns1:cnx <urn:nrel_example/DISPOSAL>,
-        <urn:nrel_example/name_ec5cbfef> ;
-    ns1:connectsThrough <urn:nrel_example/name_ec5cbfef> ;
+        <urn:nrel_example/name_e6e06f6b> ;
+    ns1:connectsThrough <urn:nrel_example/name_e6e06f6b> ;
     ns1:hasMedium ns1:Medium-Waste ;
     ns1:isConnectionPointOf <urn:nrel_example/DISPOSAL> .
 
-<urn:nrel_example/waste-in2_04edccba> a ns1:InletConnectionPoint ;
+<urn:nrel_example/waste-in_594c150c> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/DISPOSAL>,
-        <urn:nrel_example/name_250d1778> ;
-    ns1:connectsThrough <urn:nrel_example/name_250d1778> ;
+    ns1:cnx <urn:nrel_example/BACKWASH_THICKENER>,
+        <urn:nrel_example/name_7c491d16> ;
+    ns1:connectsThrough <urn:nrel_example/name_7c491d16> ;
     ns1:hasMedium ns1:Medium-Waste ;
-    ns1:isConnectionPointOf <urn:nrel_example/DISPOSAL> .
+    ns1:isConnectionPointOf <urn:nrel_example/BACKWASH_THICKENER> .
 
-<urn:nrel_example/waste-in_016b9d72> a ns1:InletConnectionPoint ;
+<urn:nrel_example/waste-in_653bf21c> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/BACKWASH_PUMP>,
+        <urn:nrel_example/name_897d365d> ;
+    ns1:connectsThrough <urn:nrel_example/name_897d365d> ;
+    ns1:hasMedium ns1:Medium-Waste ;
+    ns1:isConnectionPointOf <urn:nrel_example/BACKWASH_PUMP> .
+
+<urn:nrel_example/waste-in_6d0a3378> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
     ns1:cnx <urn:nrel_example/PRESSURE_EXCHANGER>,
-        <urn:nrel_example/name_f81bd82a> ;
-    ns1:connectsThrough <urn:nrel_example/name_f81bd82a> ;
+        <urn:nrel_example/name_a2818eb0> ;
+    ns1:connectsThrough <urn:nrel_example/name_a2818eb0> ;
     ns1:hasMedium ns1:Medium-Waste ;
     ns1:isConnectionPointOf <urn:nrel_example/PRESSURE_EXCHANGER> .
 
-<urn:nrel_example/waste-in_2411a42b> a ns1:InletConnectionPoint ;
+<urn:nrel_example/waste-in_a4dac367> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/ENERGY_RECOVERY_DEVICE>,
-        <urn:nrel_example/name_6abd3585> ;
-    ns1:connectsThrough <urn:nrel_example/name_6abd3585> ;
+    ns1:cnx <urn:nrel_example/DUMPSTER>,
+        <urn:nrel_example/name_824e03df> ;
+    ns1:connectsThrough <urn:nrel_example/name_824e03df> ;
     ns1:hasMedium ns1:Medium-Waste ;
-    ns1:isConnectionPointOf <urn:nrel_example/ENERGY_RECOVERY_DEVICE> .
+    ns1:isConnectionPointOf <urn:nrel_example/DUMPSTER> .
 
-<urn:nrel_example/waste-in_4a7aff07> a ns1:InletConnectionPoint ;
+<urn:nrel_example/waste-in_f6d811d5> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/BACKWASH>,
-        <urn:nrel_example/name_d7edea59> ;
-    ns1:connectsThrough <urn:nrel_example/name_d7edea59> ;
+    ns1:cnx <urn:nrel_example/OCEAN>,
+        <urn:nrel_example/name_fd5ef504> ;
+    ns1:connectsThrough <urn:nrel_example/name_fd5ef504> ;
     ns1:hasMedium ns1:Medium-Waste ;
-    ns1:isConnectionPointOf <urn:nrel_example/BACKWASH> .
+    ns1:isConnectionPointOf <urn:nrel_example/OCEAN> .
 
-<urn:nrel_example/waste-in_a1a96dbd> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/LANDFILL>,
-        <urn:nrel_example/name_27daffe7> ;
-    ns1:connectsThrough <urn:nrel_example/name_27daffe7> ;
+<urn:nrel_example/waste-out_1ad52663> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/MEDIA_FILTER>,
+        <urn:nrel_example/name_897d365d> ;
+    ns1:connectsThrough <urn:nrel_example/name_897d365d> ;
     ns1:hasMedium ns1:Medium-Waste ;
-    ns1:isConnectionPointOf <urn:nrel_example/LANDFILL> .
+    ns1:isConnectionPointOf <urn:nrel_example/MEDIA_FILTER> .
 
-<urn:nrel_example/waste-out_04894540> a ns1:OutletConnectionPoint ;
+<urn:nrel_example/waste-out_2ae79f13> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
     ns1:cnx <urn:nrel_example/REVERSE_OSMOSIS1>,
-        <urn:nrel_example/name_f81bd82a> ;
-    ns1:connectsThrough <urn:nrel_example/name_f81bd82a> ;
+        <urn:nrel_example/name_a2818eb0> ;
+    ns1:connectsThrough <urn:nrel_example/name_a2818eb0> ;
     ns1:hasMedium ns1:Medium-Waste ;
     ns1:isConnectionPointOf <urn:nrel_example/REVERSE_OSMOSIS1> .
 
-<urn:nrel_example/waste-out_5628b407> a ns1:OutletConnectionPoint ;
+<urn:nrel_example/waste-out_7f40403a> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/MEDIA_FILTRATION>,
-        <urn:nrel_example/name_d7edea59> ;
-    ns1:connectsThrough <urn:nrel_example/name_d7edea59> ;
+    ns1:cnx <urn:nrel_example/BACKWASH_PUMP>,
+        <urn:nrel_example/name_7c491d16> ;
+    ns1:connectsThrough <urn:nrel_example/name_7c491d16> ;
     ns1:hasMedium ns1:Medium-Waste ;
-    ns1:isConnectionPointOf <urn:nrel_example/MEDIA_FILTRATION> .
+    ns1:isConnectionPointOf <urn:nrel_example/BACKWASH_PUMP> .
 
-<urn:nrel_example/waste-out_578a1604> a ns1:OutletConnectionPoint ;
+<urn:nrel_example/waste-out_82926b26> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/DISPOSAL>,
+        <urn:nrel_example/name_fd5ef504> ;
+    ns1:connectsThrough <urn:nrel_example/name_fd5ef504> ;
+    ns1:hasMedium ns1:Medium-Waste ;
+    ns1:isConnectionPointOf <urn:nrel_example/DISPOSAL> .
+
+<urn:nrel_example/waste-out_885cc82e> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
     ns1:cnx <urn:nrel_example/PRESSURE_EXCHANGER>,
-        <urn:nrel_example/name_ec5cbfef> ;
-    ns1:connectsThrough <urn:nrel_example/name_ec5cbfef> ;
+        <urn:nrel_example/name_e6e06f6b> ;
+    ns1:connectsThrough <urn:nrel_example/name_e6e06f6b> ;
     ns1:hasMedium ns1:Medium-Waste ;
     ns1:isConnectionPointOf <urn:nrel_example/PRESSURE_EXCHANGER> .
 
-<urn:nrel_example/waste-out_82b132e0> a ns1:OutletConnectionPoint ;
+<urn:nrel_example/waste-out_e4c34a2d> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/REVERSE_OSMOSIS2>,
-        <urn:nrel_example/name_6abd3585> ;
-    ns1:connectsThrough <urn:nrel_example/name_6abd3585> ;
+    ns1:cnx <urn:nrel_example/BACKWASH_THICKENER>,
+        <urn:nrel_example/name_824e03df> ;
+    ns1:connectsThrough <urn:nrel_example/name_824e03df> ;
     ns1:hasMedium ns1:Medium-Waste ;
-    ns1:isConnectionPointOf <urn:nrel_example/REVERSE_OSMOSIS2> .
+    ns1:isConnectionPointOf <urn:nrel_example/BACKWASH_THICKENER> .
 
-<urn:nrel_example/waste-out_ab462124> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/BACKWASH>,
-        <urn:nrel_example/name_27daffe7> ;
-    ns1:connectsThrough <urn:nrel_example/name_27daffe7> ;
-    ns1:hasMedium ns1:Medium-Waste ;
-    ns1:isConnectionPointOf <urn:nrel_example/BACKWASH> .
-
-<urn:nrel_example/waste-out_d576ba4b> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/ENERGY_RECOVERY_DEVICE>,
-        <urn:nrel_example/name_250d1778> ;
-    ns1:connectsThrough <urn:nrel_example/name_250d1778> ;
-    ns1:hasMedium ns1:Medium-Waste ;
-    ns1:isConnectionPointOf <urn:nrel_example/ENERGY_RECOVERY_DEVICE> .
-
-<urn:nrel_example/water-in1_5f7848c6> a ns1:InletConnectionPoint ;
+<urn:nrel_example/water-in1_04a8e9f1> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
     ns1:cnx <urn:nrel_example/PRESSURE_EXCHANGER>,
-        <urn:nrel_example/name_bdb8c024> ;
-    ns1:connectsThrough <urn:nrel_example/name_bdb8c024> ;
+        <urn:nrel_example/name_945da1a0> ;
+    ns1:connectsThrough <urn:nrel_example/name_945da1a0> ;
     ns1:hasMedium ns1:Medium-Water ;
     ns1:isConnectionPointOf <urn:nrel_example/PRESSURE_EXCHANGER> .
 
-<urn:nrel_example/water-in1_8a9f4821> a ns1:InletConnectionPoint ;
+<urn:nrel_example/water-in1_e944b223> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
     ns1:cnx <urn:nrel_example/MIXER>,
-        <urn:nrel_example/name_d9601fa0> ;
-    ns1:connectsThrough <urn:nrel_example/name_d9601fa0> ;
+        <urn:nrel_example/name_e4bde129> ;
+    ns1:connectsThrough <urn:nrel_example/name_e4bde129> ;
     ns1:hasMedium ns1:Medium-Water ;
     ns1:isConnectionPointOf <urn:nrel_example/MIXER> .
 
-<urn:nrel_example/water-in2_39453662> a ns1:InletConnectionPoint ;
+<urn:nrel_example/water-in2_f0402371> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
     ns1:cnx <urn:nrel_example/MIXER>,
-        <urn:nrel_example/name_5e013d29> ;
-    ns1:connectsThrough <urn:nrel_example/name_5e013d29> ;
+        <urn:nrel_example/name_38ea9a35> ;
+    ns1:connectsThrough <urn:nrel_example/name_38ea9a35> ;
     ns1:hasMedium ns1:Medium-Water ;
     ns1:isConnectionPointOf <urn:nrel_example/MIXER> .
 
-<urn:nrel_example/water-in_157f4907> a ns1:InletConnectionPoint ;
+<urn:nrel_example/water-in_0a1df644> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/REVERSE_OSMOSIS2>,
-        <urn:nrel_example/name_3aa1398a> ;
-    ns1:connectsThrough <urn:nrel_example/name_3aa1398a> ;
+    ns1:cnx <urn:nrel_example/CHLORINATION-BASIN>,
+        <urn:nrel_example/name_7319d390> ;
+    ns1:connectsThrough <urn:nrel_example/name_7319d390> ;
     ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/REVERSE_OSMOSIS2> .
+    ns1:isConnectionPointOf <urn:nrel_example/CHLORINATION-BASIN> .
 
-<urn:nrel_example/water-in_192ae26c> a ns1:InletConnectionPoint ;
+<urn:nrel_example/water-in_0baaca11> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/SEPARATOR>,
-        <urn:nrel_example/name_97b35d84> ;
-    ns1:connectsThrough <urn:nrel_example/name_97b35d84> ;
+    ns1:cnx <urn:nrel_example/INTAKE>,
+        <urn:nrel_example/name_da21d417> ;
+    ns1:connectsThrough <urn:nrel_example/name_da21d417> ;
     ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/SEPARATOR> .
+    ns1:isConnectionPointOf <urn:nrel_example/INTAKE> .
 
-<urn:nrel_example/water-in_2baf56cd> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/MEDIA_FILTRATION>,
-        <urn:nrel_example/name_8c83df20> ;
-    ns1:connectsThrough <urn:nrel_example/name_8c83df20> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/MEDIA_FILTRATION> .
-
-<urn:nrel_example/water-in_3027ed29> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/STORAGE_TANK_2>,
-        <urn:nrel_example/name_569fd65a> ;
-    ns1:connectsThrough <urn:nrel_example/name_569fd65a> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/STORAGE_TANK_2> .
-
-<urn:nrel_example/water-in_315f6ca5> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/CHLORINATION>,
-        <urn:nrel_example/name_da4c4885> ;
-    ns1:connectsThrough <urn:nrel_example/name_da4c4885> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/CHLORINATION> .
-
-<urn:nrel_example/water-in_3b46a406> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/STORAGE_TANK_1>,
-        <urn:nrel_example/name_e2b2a6de> ;
-    ns1:connectsThrough <urn:nrel_example/name_e2b2a6de> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/STORAGE_TANK_1> .
-
-<urn:nrel_example/water-in_42ce3d2a> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/STATIC_MIXER>,
-        <urn:nrel_example/name_0d2ef173> ;
-    ns1:connectsThrough <urn:nrel_example/name_0d2ef173> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/STATIC_MIXER> .
-
-<urn:nrel_example/water-in_504f0933> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/CARTRIDGE_FILTRATION>,
-        <urn:nrel_example/name_c75e30d4> ;
-    ns1:connectsThrough <urn:nrel_example/name_c75e30d4> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/CARTRIDGE_FILTRATION> .
-
-<urn:nrel_example/water-in_517a050e> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/PUMP1.2>,
-        <urn:nrel_example/name_4fa3ac8c> ;
-    ns1:connectsThrough <urn:nrel_example/name_4fa3ac8c> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/PUMP1.2> .
-
-<urn:nrel_example/water-in_52ab045a> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/CO2_ADDITION>,
-        <urn:nrel_example/name_7f1f741a> ;
-    ns1:connectsThrough <urn:nrel_example/name_7f1f741a> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/CO2_ADDITION> .
-
-<urn:nrel_example/water-in_5a035859> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/FECL3_ADDITION>,
-        <urn:nrel_example/name_679d3706> ;
-    ns1:connectsThrough <urn:nrel_example/name_679d3706> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/FECL3_ADDITION> .
-
-<urn:nrel_example/water-in_72ad7251> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/PUMP2.1>,
-        <urn:nrel_example/name_1df5d1b6> ;
-    ns1:connectsThrough <urn:nrel_example/name_1df5d1b6> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/PUMP2.1> .
-
-<urn:nrel_example/water-in_7f16c28f> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/PUMP1.1>,
-        <urn:nrel_example/name_50fdd618> ;
-    ns1:connectsThrough <urn:nrel_example/name_50fdd618> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/PUMP1.1> .
-
-<urn:nrel_example/water-in_98a139a8> a ns1:InletConnectionPoint ;
+<urn:nrel_example/water-in_0e9e2945> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
     ns1:cnx <urn:nrel_example/MUNICIPAL_WATER>,
-        <urn:nrel_example/name_c1b2b64e> ;
-    ns1:connectsThrough <urn:nrel_example/name_c1b2b64e> ;
+        <urn:nrel_example/name_e97eb9ef> ;
+    ns1:connectsThrough <urn:nrel_example/name_e97eb9ef> ;
     ns1:hasMedium ns1:Medium-Water ;
     ns1:isConnectionPointOf <urn:nrel_example/MUNICIPAL_WATER> .
 
-<urn:nrel_example/water-in_ad08f47c> a ns1:InletConnectionPoint ;
+<urn:nrel_example/water-in_291ea0ba> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/INTAKE>,
-        <urn:nrel_example/name_dff6d2e6> ;
-    ns1:connectsThrough <urn:nrel_example/name_dff6d2e6> ;
+    ns1:cnx <urn:nrel_example/FECL3_DOSING_POINT>,
+        <urn:nrel_example/name_4a81ca1b> ;
+    ns1:connectsThrough <urn:nrel_example/name_4a81ca1b> ;
     ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/INTAKE> .
+    ns1:isConnectionPointOf <urn:nrel_example/FECL3_DOSING_POINT> .
 
-<urn:nrel_example/water-in_c51a5825> a ns1:InletConnectionPoint ;
+<urn:nrel_example/water-in_301aa826> a ns1:InletConnectionPoint ;
     rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/STORAGE_TANK_3>,
-        <urn:nrel_example/name_8eed0a1d> ;
-    ns1:connectsThrough <urn:nrel_example/name_8eed0a1d> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/STORAGE_TANK_3> .
-
-<urn:nrel_example/water-in_c731651c> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/LIME_ADDITION>,
-        <urn:nrel_example/name_cbd0b5e9> ;
-    ns1:connectsThrough <urn:nrel_example/name_cbd0b5e9> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/LIME_ADDITION> .
-
-<urn:nrel_example/water-in_ccdf3615> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/REVERSE_OSMOSIS1>,
-        <urn:nrel_example/name_ff80005a> ;
-    ns1:connectsThrough <urn:nrel_example/name_ff80005a> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/REVERSE_OSMOSIS1> .
-
-<urn:nrel_example/water-in_dd387e51> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/UV-AOP>,
-        <urn:nrel_example/name_cfb0f00c> ;
-    ns1:connectsThrough <urn:nrel_example/name_cfb0f00c> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/UV-AOP> .
-
-<urn:nrel_example/water-in_e1549909> a ns1:InletConnectionPoint ;
-    rdfs:label "InletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/ANTI_SCALANT>,
-        <urn:nrel_example/name_b84041e6> ;
-    ns1:connectsThrough <urn:nrel_example/name_b84041e6> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/ANTI_SCALANT> .
-
-<urn:nrel_example/water-out1_7d9018e3> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/SEPARATOR>,
-        <urn:nrel_example/name_50fdd618> ;
-    ns1:connectsThrough <urn:nrel_example/name_50fdd618> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/SEPARATOR> .
-
-<urn:nrel_example/water-out1_8e4e93c0> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/PRESSURE_EXCHANGER>,
-        <urn:nrel_example/name_4fa3ac8c> ;
-    ns1:connectsThrough <urn:nrel_example/name_4fa3ac8c> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/PRESSURE_EXCHANGER> .
-
-<urn:nrel_example/water-out2_8058d1bb> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/SEPARATOR>,
-        <urn:nrel_example/name_bdb8c024> ;
-    ns1:connectsThrough <urn:nrel_example/name_bdb8c024> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/SEPARATOR> .
-
-<urn:nrel_example/water-out_0ed60455> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/MEDIA_FILTRATION>,
-        <urn:nrel_example/name_b84041e6> ;
-    ns1:connectsThrough <urn:nrel_example/name_b84041e6> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/MEDIA_FILTRATION> .
-
-<urn:nrel_example/water-out_0f03f4ae> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/PUMP1.2>,
-        <urn:nrel_example/name_5e013d29> ;
-    ns1:connectsThrough <urn:nrel_example/name_5e013d29> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/PUMP1.2> .
-
-<urn:nrel_example/water-out_1b5d206c> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/INTAKE>,
-        <urn:nrel_example/name_679d3706> ;
-    ns1:connectsThrough <urn:nrel_example/name_679d3706> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/INTAKE> .
-
-<urn:nrel_example/water-out_21c994bd> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/STORAGE_TANK_3>,
-        <urn:nrel_example/name_c1b2b64e> ;
-    ns1:connectsThrough <urn:nrel_example/name_c1b2b64e> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/STORAGE_TANK_3> .
-
-<urn:nrel_example/water-out_2db87a89> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/STORAGE_TANK_2>,
-        <urn:nrel_example/name_cfb0f00c> ;
-    ns1:connectsThrough <urn:nrel_example/name_cfb0f00c> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/STORAGE_TANK_2> .
-
-<urn:nrel_example/water-out_5e7d89b4> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/PUMP1.1>,
-        <urn:nrel_example/name_d9601fa0> ;
-    ns1:connectsThrough <urn:nrel_example/name_d9601fa0> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/PUMP1.1> .
-
-<urn:nrel_example/water-out_608b598a> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/CARTRIDGE_FILTRATION>,
-        <urn:nrel_example/name_011e97c6> ;
-    ns1:connectsThrough <urn:nrel_example/name_011e97c6> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/CARTRIDGE_FILTRATION> .
-
-<urn:nrel_example/water-out_6aa6c0af> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/REVERSE_OSMOSIS1>,
-        <urn:nrel_example/name_cc6644d1> ;
-    ns1:connectsThrough <urn:nrel_example/name_cc6644d1> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/REVERSE_OSMOSIS1> .
-
-<urn:nrel_example/water-out_6c55ce83> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/REVERSE_OSMOSIS2>,
-        <urn:nrel_example/name_49a35ac9> ;
-    ns1:connectsThrough <urn:nrel_example/name_49a35ac9> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/REVERSE_OSMOSIS2> .
-
-<urn:nrel_example/water-out_6df61a88> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/STORAGE_TANK_1>,
-        <urn:nrel_example/name_8c83df20> ;
-    ns1:connectsThrough <urn:nrel_example/name_8c83df20> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/STORAGE_TANK_1> .
-
-<urn:nrel_example/water-out_70511b47> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/PUMP2.1>,
-        <urn:nrel_example/name_3aa1398a> ;
-    ns1:connectsThrough <urn:nrel_example/name_3aa1398a> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/PUMP2.1> .
-
-<urn:nrel_example/water-out_82434e70> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/CO2_ADDITION>,
-        <urn:nrel_example/name_cbd0b5e9> ;
-    ns1:connectsThrough <urn:nrel_example/name_cbd0b5e9> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/CO2_ADDITION> .
-
-<urn:nrel_example/water-out_aa8e9ee6> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/ANTI_SCALANT>,
-        <urn:nrel_example/name_c75e30d4> ;
-    ns1:connectsThrough <urn:nrel_example/name_c75e30d4> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/ANTI_SCALANT> .
-
-<urn:nrel_example/water-out_c968e37f> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/FECL3_ADDITION>,
-        <urn:nrel_example/name_da4c4885> ;
-    ns1:connectsThrough <urn:nrel_example/name_da4c4885> ;
-    ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/FECL3_ADDITION> .
-
-<urn:nrel_example/water-out_cb9d9a76> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
     ns1:cnx <urn:nrel_example/STATIC_MIXER>,
-        <urn:nrel_example/name_e2b2a6de> ;
-    ns1:connectsThrough <urn:nrel_example/name_e2b2a6de> ;
+        <urn:nrel_example/name_9a179be7> ;
+    ns1:connectsThrough <urn:nrel_example/name_9a179be7> ;
     ns1:hasMedium ns1:Medium-Water ;
     ns1:isConnectionPointOf <urn:nrel_example/STATIC_MIXER> .
 
-<urn:nrel_example/water-out_cba97b9d> a ns1:OutletConnectionPoint ;
-    rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/FEED>,
-        <urn:nrel_example/name_dff6d2e6> ;
-    ns1:connectsThrough <urn:nrel_example/name_dff6d2e6> ;
+<urn:nrel_example/water-in_375f9014> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/CARTRIDGE_FILTER>,
+        <urn:nrel_example/name_c96c2bcb> ;
+    ns1:connectsThrough <urn:nrel_example/name_c96c2bcb> ;
     ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/FEED> .
+    ns1:isConnectionPointOf <urn:nrel_example/CARTRIDGE_FILTER> .
 
-<urn:nrel_example/water-out_d03d9a7a> a ns1:OutletConnectionPoint ;
+<urn:nrel_example/water-in_3a794dcc> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/ANTI_SCALANT_DOSING_POINT>,
+        <urn:nrel_example/name_447c822f> ;
+    ns1:connectsThrough <urn:nrel_example/name_447c822f> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/ANTI_SCALANT_DOSING_POINT> .
+
+<urn:nrel_example/water-in_58ade42b> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/CHLORINE_DOSING_POINT>,
+        <urn:nrel_example/name_02dc0d91> ;
+    ns1:connectsThrough <urn:nrel_example/name_02dc0d91> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/CHLORINE_DOSING_POINT> .
+
+<urn:nrel_example/water-in_5bdc1e5a> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/OZONE_DOSING_POINT>,
+        <urn:nrel_example/name_84983af5> ;
+    ns1:connectsThrough <urn:nrel_example/name_84983af5> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/OZONE_DOSING_POINT> .
+
+<urn:nrel_example/water-in_5ede07a5> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/SEPARATOR>,
+        <urn:nrel_example/name_2030dc3a> ;
+    ns1:connectsThrough <urn:nrel_example/name_2030dc3a> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/SEPARATOR> .
+
+<urn:nrel_example/water-in_6375d3d6> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/STORAGE_TANK_1>,
+        <urn:nrel_example/name_116bc15e> ;
+    ns1:connectsThrough <urn:nrel_example/name_116bc15e> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/STORAGE_TANK_1> .
+
+<urn:nrel_example/water-in_83805bc2> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/STORAGE_TANK_2>,
+        <urn:nrel_example/name_9b1ae202> ;
+    ns1:connectsThrough <urn:nrel_example/name_9b1ae202> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/STORAGE_TANK_2> .
+
+<urn:nrel_example/water-in_8525da93> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/REVERSE_OSMOSIS1>,
+        <urn:nrel_example/name_31fa6da1> ;
+    ns1:connectsThrough <urn:nrel_example/name_31fa6da1> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/REVERSE_OSMOSIS1> .
+
+<urn:nrel_example/water-in_a47ee538> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/CO2_DOSING_POINT>,
+        <urn:nrel_example/name_2b70b9be> ;
+    ns1:connectsThrough <urn:nrel_example/name_2b70b9be> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/CO2_DOSING_POINT> .
+
+<urn:nrel_example/water-in_b9eb8b85> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/STORAGE_TANK_3>,
+        <urn:nrel_example/name_96878711> ;
+    ns1:connectsThrough <urn:nrel_example/name_96878711> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/STORAGE_TANK_3> .
+
+<urn:nrel_example/water-in_ba1092d4> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/PUMP1.2>,
+        <urn:nrel_example/name_57cf70b7> ;
+    ns1:connectsThrough <urn:nrel_example/name_57cf70b7> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/PUMP1.2> .
+
+<urn:nrel_example/water-in_c3082278> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/MEDIA_FILTER>,
+        <urn:nrel_example/name_15552433> ;
+    ns1:connectsThrough <urn:nrel_example/name_15552433> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/MEDIA_FILTER> .
+
+<urn:nrel_example/water-in_e6b27d33> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/LIME_DOSING_POINT>,
+        <urn:nrel_example/name_7cb9be78> ;
+    ns1:connectsThrough <urn:nrel_example/name_7cb9be78> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/LIME_DOSING_POINT> .
+
+<urn:nrel_example/water-in_ee6e1048> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/PUMP1.1>,
+        <urn:nrel_example/name_237d4acf> ;
+    ns1:connectsThrough <urn:nrel_example/name_237d4acf> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/PUMP1.1> .
+
+<urn:nrel_example/water-in_f3e9001d> a ns1:InletConnectionPoint ;
+    rdfs:label "InletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/UV-AOP-Reactor>,
+        <urn:nrel_example/name_409234f1> ;
+    ns1:connectsThrough <urn:nrel_example/name_409234f1> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/UV-AOP-Reactor> .
+
+<urn:nrel_example/water-out1_1815d7cb> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/PRESSURE_EXCHANGER>,
+        <urn:nrel_example/name_57cf70b7> ;
+    ns1:connectsThrough <urn:nrel_example/name_57cf70b7> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/PRESSURE_EXCHANGER> .
+
+<urn:nrel_example/water-out1_21b902fc> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/SEPARATOR>,
+        <urn:nrel_example/name_237d4acf> ;
+    ns1:connectsThrough <urn:nrel_example/name_237d4acf> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/SEPARATOR> .
+
+<urn:nrel_example/water-out2_783aaafc> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/SEPARATOR>,
+        <urn:nrel_example/name_945da1a0> ;
+    ns1:connectsThrough <urn:nrel_example/name_945da1a0> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/SEPARATOR> .
+
+<urn:nrel_example/water-out_048f2c93> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/UV-AOP-Reactor>,
+        <urn:nrel_example/name_2b70b9be> ;
+    ns1:connectsThrough <urn:nrel_example/name_2b70b9be> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/UV-AOP-Reactor> .
+
+<urn:nrel_example/water-out_1aa23458> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/STORAGE_TANK_1>,
+        <urn:nrel_example/name_15552433> ;
+    ns1:connectsThrough <urn:nrel_example/name_15552433> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/STORAGE_TANK_1> .
+
+<urn:nrel_example/water-out_1c408696> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/PUMP1.1>,
+        <urn:nrel_example/name_e4bde129> ;
+    ns1:connectsThrough <urn:nrel_example/name_e4bde129> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/PUMP1.1> .
+
+<urn:nrel_example/water-out_1f85ad4c> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/PUMP1.2>,
+        <urn:nrel_example/name_38ea9a35> ;
+    ns1:connectsThrough <urn:nrel_example/name_38ea9a35> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/PUMP1.2> .
+
+<urn:nrel_example/water-out_439194de> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/STATIC_MIXER>,
+        <urn:nrel_example/name_116bc15e> ;
+    ns1:connectsThrough <urn:nrel_example/name_116bc15e> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/STATIC_MIXER> .
+
+<urn:nrel_example/water-out_4b94bf2d> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/OZONE_DOSING_POINT>,
+        <urn:nrel_example/name_409234f1> ;
+    ns1:connectsThrough <urn:nrel_example/name_409234f1> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/OZONE_DOSING_POINT> .
+
+<urn:nrel_example/water-out_59316dbc> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
     ns1:cnx <urn:nrel_example/MIXER>,
-        <urn:nrel_example/name_ff80005a> ;
-    ns1:connectsThrough <urn:nrel_example/name_ff80005a> ;
+        <urn:nrel_example/name_31fa6da1> ;
+    ns1:connectsThrough <urn:nrel_example/name_31fa6da1> ;
     ns1:hasMedium ns1:Medium-Water ;
     ns1:isConnectionPointOf <urn:nrel_example/MIXER> .
 
-<urn:nrel_example/water-out_d80ba9d7> a ns1:OutletConnectionPoint ;
+<urn:nrel_example/water-out_5b0a9c68> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/LIME_ADDITION>,
-        <urn:nrel_example/name_8eed0a1d> ;
-    ns1:connectsThrough <urn:nrel_example/name_8eed0a1d> ;
+    ns1:cnx <urn:nrel_example/REVERSE_OSMOSIS1>,
+        <urn:nrel_example/name_9b1ae202> ;
+    ns1:connectsThrough <urn:nrel_example/name_9b1ae202> ;
     ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/LIME_ADDITION> .
+    ns1:isConnectionPointOf <urn:nrel_example/REVERSE_OSMOSIS1> .
 
-<urn:nrel_example/water-out_ea26c167> a ns1:OutletConnectionPoint ;
+<urn:nrel_example/water-out_5ca5c285> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/UV-AOP>,
-        <urn:nrel_example/name_7f1f741a> ;
-    ns1:connectsThrough <urn:nrel_example/name_7f1f741a> ;
+    ns1:cnx <urn:nrel_example/ANTI_SCALANT_DOSING_POINT>,
+        <urn:nrel_example/name_c96c2bcb> ;
+    ns1:connectsThrough <urn:nrel_example/name_c96c2bcb> ;
     ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/UV-AOP> .
+    ns1:isConnectionPointOf <urn:nrel_example/ANTI_SCALANT_DOSING_POINT> .
 
-<urn:nrel_example/water-out_f5896552> a ns1:OutletConnectionPoint ;
+<urn:nrel_example/water-out_65fb4626> a ns1:OutletConnectionPoint ;
     rdfs:label "OutletConnectionPoint" ;
-    ns1:cnx <urn:nrel_example/CHLORINATION>,
-        <urn:nrel_example/name_0d2ef173> ;
-    ns1:connectsThrough <urn:nrel_example/name_0d2ef173> ;
+    ns1:cnx <urn:nrel_example/LIME_DOSING_POINT>,
+        <urn:nrel_example/name_96878711> ;
+    ns1:connectsThrough <urn:nrel_example/name_96878711> ;
     ns1:hasMedium ns1:Medium-Water ;
-    ns1:isConnectionPointOf <urn:nrel_example/CHLORINATION> .
+    ns1:isConnectionPointOf <urn:nrel_example/LIME_DOSING_POINT> .
 
-<urn:nrel_example/name_011e97c6> a ns1:Pipe ;
+<urn:nrel_example/water-out_885e7c58> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/STORAGE_TANK_3>,
+        <urn:nrel_example/name_e97eb9ef> ;
+    ns1:connectsThrough <urn:nrel_example/name_e97eb9ef> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/STORAGE_TANK_3> .
+
+<urn:nrel_example/water-out_a3880ce4> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/CHLORINE_DOSING_POINT>,
+        <urn:nrel_example/name_7319d390> ;
+    ns1:connectsThrough <urn:nrel_example/name_7319d390> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/CHLORINE_DOSING_POINT> .
+
+<urn:nrel_example/water-out_afada823> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/CO2_DOSING_POINT>,
+        <urn:nrel_example/name_7cb9be78> ;
+    ns1:connectsThrough <urn:nrel_example/name_7cb9be78> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/CO2_DOSING_POINT> .
+
+<urn:nrel_example/water-out_be2e9479> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/OCEAN>,
+        <urn:nrel_example/name_da21d417> ;
+    ns1:connectsThrough <urn:nrel_example/name_da21d417> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/OCEAN> .
+
+<urn:nrel_example/water-out_d11bef6e> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/STORAGE_TANK_2>,
+        <urn:nrel_example/name_84983af5> ;
+    ns1:connectsThrough <urn:nrel_example/name_84983af5> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/STORAGE_TANK_2> .
+
+<urn:nrel_example/water-out_e92e66fe> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/INTAKE>,
+        <urn:nrel_example/name_4a81ca1b> ;
+    ns1:connectsThrough <urn:nrel_example/name_4a81ca1b> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/INTAKE> .
+
+<urn:nrel_example/water-out_ed173ddf> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/MEDIA_FILTER>,
+        <urn:nrel_example/name_447c822f> ;
+    ns1:connectsThrough <urn:nrel_example/name_447c822f> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/MEDIA_FILTER> .
+
+<urn:nrel_example/water-out_f4c38a43> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/CHLORINATION-BASIN>,
+        <urn:nrel_example/name_9a179be7> ;
+    ns1:connectsThrough <urn:nrel_example/name_9a179be7> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/CHLORINATION-BASIN> .
+
+<urn:nrel_example/water-out_f948436a> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/CARTRIDGE_FILTER>,
+        <urn:nrel_example/name_2030dc3a> ;
+    ns1:connectsThrough <urn:nrel_example/name_2030dc3a> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/CARTRIDGE_FILTER> .
+
+<urn:nrel_example/water-out_fd964cf2> a ns1:OutletConnectionPoint ;
+    rdfs:label "OutletConnectionPoint" ;
+    ns1:cnx <urn:nrel_example/FECL3_DOSING_POINT>,
+        <urn:nrel_example/name_02dc0d91> ;
+    ns1:connectsThrough <urn:nrel_example/name_02dc0d91> ;
+    ns1:hasMedium ns1:Medium-Water ;
+    ns1:isConnectionPointOf <urn:nrel_example/FECL3_DOSING_POINT> .
+
+ns1:DosingPoint rdfs:subClassOf ns1:Equipment .
+
+ns1:DosingPump rdfs:subClassOf ns1:Equipment .
+
+<urn:nrel_example/name_02dc0d91> a ns1:Pipe ;
     rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/in1_a500acda>,
-        <urn:nrel_example/water-out_608b598a> ;
-    ns1:connectsAt <urn:nrel_example/in1_a500acda>,
-        <urn:nrel_example/water-out_608b598a> ;
-    ns1:connectsFrom <urn:nrel_example/CARTRIDGE_FILTRATION> ;
-    ns1:connectsTo <urn:nrel_example/PRETREATMENT_JUNCTION> ;
+    ns1:cnx <urn:nrel_example/water-in_58ade42b>,
+        <urn:nrel_example/water-out_fd964cf2> ;
+    ns1:connectsAt <urn:nrel_example/water-in_58ade42b>,
+        <urn:nrel_example/water-out_fd964cf2> ;
+    ns1:connectsFrom <urn:nrel_example/FECL3_DOSING_POINT> ;
+    ns1:connectsTo <urn:nrel_example/CHLORINE_DOSING_POINT> ;
     ns1:hasMedium ns1:Medium-Water .
 
-<urn:nrel_example/name_0d2ef173> a ns1:Pipe ;
+<urn:nrel_example/name_0536fd84> a ns1:Pipe ;
     rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_42ce3d2a>,
-        <urn:nrel_example/water-out_f5896552> ;
-    ns1:connectsAt <urn:nrel_example/water-in_42ce3d2a>,
-        <urn:nrel_example/water-out_f5896552> ;
-    ns1:connectsFrom <urn:nrel_example/CHLORINATION> ;
-    ns1:connectsTo <urn:nrel_example/STATIC_MIXER> ;
-    ns1:hasMedium ns1:Medium-Water .
+    ns1:cnx <urn:nrel_example/chemical-in_a8029a86>,
+        <urn:nrel_example/chemical-out_b526dbac> ;
+    ns1:connectsAt <urn:nrel_example/chemical-in_a8029a86>,
+        <urn:nrel_example/chemical-out_b526dbac> ;
+    ns1:connectsFrom <urn:nrel_example/ANTI_SCALANT_TANK> ;
+    ns1:connectsTo <urn:nrel_example/ANTI_SCALANT_PUMP> ;
+    ns1:hasMedium ns1:Medium-Chemical .
 
-<urn:nrel_example/name_1df5d1b6> a ns1:Pipe ;
+<urn:nrel_example/name_0658ad8f> a ns1:Pipe ;
     rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/out2_a2002266>,
-        <urn:nrel_example/water-in_72ad7251> ;
-    ns1:connectsAt <urn:nrel_example/out2_a2002266>,
-        <urn:nrel_example/water-in_72ad7251> ;
-    ns1:connectsFrom <urn:nrel_example/PRETREATMENT_JUNCTION> ;
-    ns1:connectsTo <urn:nrel_example/PUMP2.1> ;
-    ns1:hasMedium ns1:Medium-Water .
+    ns1:cnx <urn:nrel_example/chemical-in_b8583db5>,
+        <urn:nrel_example/chemical-out_f95efea5> ;
+    ns1:connectsAt <urn:nrel_example/chemical-in_b8583db5>,
+        <urn:nrel_example/chemical-out_f95efea5> ;
+    ns1:connectsFrom <urn:nrel_example/CO2_PUMP> ;
+    ns1:connectsTo <urn:nrel_example/CO2_DOSING_POINT> ;
+    ns1:hasMedium ns1:Medium-Chemical .
 
-<urn:nrel_example/name_250d1778> a ns1:Pipe ;
+<urn:nrel_example/name_116bc15e> a ns1:Pipe ;
     rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/waste-in2_04edccba>,
-        <urn:nrel_example/waste-out_d576ba4b> ;
-    ns1:connectsAt <urn:nrel_example/waste-in2_04edccba>,
-        <urn:nrel_example/waste-out_d576ba4b> ;
-    ns1:connectsFrom <urn:nrel_example/ENERGY_RECOVERY_DEVICE> ;
-    ns1:connectsTo <urn:nrel_example/DISPOSAL> ;
-    ns1:hasMedium ns1:Medium-Waste .
-
-<urn:nrel_example/name_27daffe7> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/waste-in_a1a96dbd>,
-        <urn:nrel_example/waste-out_ab462124> ;
-    ns1:connectsAt <urn:nrel_example/waste-in_a1a96dbd>,
-        <urn:nrel_example/waste-out_ab462124> ;
-    ns1:connectsFrom <urn:nrel_example/BACKWASH> ;
-    ns1:connectsTo <urn:nrel_example/LANDFILL> ;
-    ns1:hasMedium ns1:Medium-Waste .
-
-<urn:nrel_example/name_3aa1398a> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_157f4907>,
-        <urn:nrel_example/water-out_70511b47> ;
-    ns1:connectsAt <urn:nrel_example/water-in_157f4907>,
-        <urn:nrel_example/water-out_70511b47> ;
-    ns1:connectsFrom <urn:nrel_example/PUMP2.1> ;
-    ns1:connectsTo <urn:nrel_example/REVERSE_OSMOSIS2> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_49a35ac9> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/in2_28c58a03>,
-        <urn:nrel_example/water-out_6c55ce83> ;
-    ns1:connectsAt <urn:nrel_example/in2_28c58a03>,
-        <urn:nrel_example/water-out_6c55ce83> ;
-    ns1:connectsFrom <urn:nrel_example/REVERSE_OSMOSIS2> ;
-    ns1:connectsTo <urn:nrel_example/DESAL_JUNCTION> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_4fa3ac8c> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_517a050e>,
-        <urn:nrel_example/water-out1_8e4e93c0> ;
-    ns1:connectsAt <urn:nrel_example/water-in_517a050e>,
-        <urn:nrel_example/water-out1_8e4e93c0> ;
-    ns1:connectsFrom <urn:nrel_example/PRESSURE_EXCHANGER> ;
-    ns1:connectsTo <urn:nrel_example/PUMP1.2> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_50fdd618> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_7f16c28f>,
-        <urn:nrel_example/water-out1_7d9018e3> ;
-    ns1:connectsAt <urn:nrel_example/water-in_7f16c28f>,
-        <urn:nrel_example/water-out1_7d9018e3> ;
-    ns1:connectsFrom <urn:nrel_example/SEPARATOR> ;
-    ns1:connectsTo <urn:nrel_example/PUMP1.1> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_569fd65a> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/out1_d80f2451>,
-        <urn:nrel_example/water-in_3027ed29> ;
-    ns1:connectsAt <urn:nrel_example/out1_d80f2451>,
-        <urn:nrel_example/water-in_3027ed29> ;
-    ns1:connectsFrom <urn:nrel_example/DESAL_JUNCTION> ;
-    ns1:connectsTo <urn:nrel_example/STORAGE_TANK_2> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_5e013d29> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in2_39453662>,
-        <urn:nrel_example/water-out_0f03f4ae> ;
-    ns1:connectsAt <urn:nrel_example/water-in2_39453662>,
-        <urn:nrel_example/water-out_0f03f4ae> ;
-    ns1:connectsFrom <urn:nrel_example/PUMP1.2> ;
-    ns1:connectsTo <urn:nrel_example/MIXER> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_679d3706> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_5a035859>,
-        <urn:nrel_example/water-out_1b5d206c> ;
-    ns1:connectsAt <urn:nrel_example/water-in_5a035859>,
-        <urn:nrel_example/water-out_1b5d206c> ;
-    ns1:connectsFrom <urn:nrel_example/INTAKE> ;
-    ns1:connectsTo <urn:nrel_example/FECL3_ADDITION> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_6abd3585> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/waste-in_2411a42b>,
-        <urn:nrel_example/waste-out_82b132e0> ;
-    ns1:connectsAt <urn:nrel_example/waste-in_2411a42b>,
-        <urn:nrel_example/waste-out_82b132e0> ;
-    ns1:connectsFrom <urn:nrel_example/REVERSE_OSMOSIS2> ;
-    ns1:connectsTo <urn:nrel_example/ENERGY_RECOVERY_DEVICE> ;
-    ns1:hasMedium ns1:Medium-Waste .
-
-<urn:nrel_example/name_7f1f741a> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_52ab045a>,
-        <urn:nrel_example/water-out_ea26c167> ;
-    ns1:connectsAt <urn:nrel_example/water-in_52ab045a>,
-        <urn:nrel_example/water-out_ea26c167> ;
-    ns1:connectsFrom <urn:nrel_example/UV-AOP> ;
-    ns1:connectsTo <urn:nrel_example/CO2_ADDITION> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_8c83df20> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_2baf56cd>,
-        <urn:nrel_example/water-out_6df61a88> ;
-    ns1:connectsAt <urn:nrel_example/water-in_2baf56cd>,
-        <urn:nrel_example/water-out_6df61a88> ;
-    ns1:connectsFrom <urn:nrel_example/STORAGE_TANK_1> ;
-    ns1:connectsTo <urn:nrel_example/MEDIA_FILTRATION> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_8eed0a1d> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_c51a5825>,
-        <urn:nrel_example/water-out_d80ba9d7> ;
-    ns1:connectsAt <urn:nrel_example/water-in_c51a5825>,
-        <urn:nrel_example/water-out_d80ba9d7> ;
-    ns1:connectsFrom <urn:nrel_example/LIME_ADDITION> ;
-    ns1:connectsTo <urn:nrel_example/STORAGE_TANK_3> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_97b35d84> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/out1_5cc24936>,
-        <urn:nrel_example/water-in_192ae26c> ;
-    ns1:connectsAt <urn:nrel_example/out1_5cc24936>,
-        <urn:nrel_example/water-in_192ae26c> ;
-    ns1:connectsFrom <urn:nrel_example/PRETREATMENT_JUNCTION> ;
-    ns1:connectsTo <urn:nrel_example/SEPARATOR> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_b84041e6> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_e1549909>,
-        <urn:nrel_example/water-out_0ed60455> ;
-    ns1:connectsAt <urn:nrel_example/water-in_e1549909>,
-        <urn:nrel_example/water-out_0ed60455> ;
-    ns1:connectsFrom <urn:nrel_example/MEDIA_FILTRATION> ;
-    ns1:connectsTo <urn:nrel_example/ANTI_SCALANT> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_bdb8c024> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in1_5f7848c6>,
-        <urn:nrel_example/water-out2_8058d1bb> ;
-    ns1:connectsAt <urn:nrel_example/water-in1_5f7848c6>,
-        <urn:nrel_example/water-out2_8058d1bb> ;
-    ns1:connectsFrom <urn:nrel_example/SEPARATOR> ;
-    ns1:connectsTo <urn:nrel_example/PRESSURE_EXCHANGER> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_c1b2b64e> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_98a139a8>,
-        <urn:nrel_example/water-out_21c994bd> ;
-    ns1:connectsAt <urn:nrel_example/water-in_98a139a8>,
-        <urn:nrel_example/water-out_21c994bd> ;
-    ns1:connectsFrom <urn:nrel_example/STORAGE_TANK_3> ;
-    ns1:connectsTo <urn:nrel_example/MUNICIPAL_WATER> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_c75e30d4> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_504f0933>,
-        <urn:nrel_example/water-out_aa8e9ee6> ;
-    ns1:connectsAt <urn:nrel_example/water-in_504f0933>,
-        <urn:nrel_example/water-out_aa8e9ee6> ;
-    ns1:connectsFrom <urn:nrel_example/ANTI_SCALANT> ;
-    ns1:connectsTo <urn:nrel_example/CARTRIDGE_FILTRATION> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_cbd0b5e9> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_c731651c>,
-        <urn:nrel_example/water-out_82434e70> ;
-    ns1:connectsAt <urn:nrel_example/water-in_c731651c>,
-        <urn:nrel_example/water-out_82434e70> ;
-    ns1:connectsFrom <urn:nrel_example/CO2_ADDITION> ;
-    ns1:connectsTo <urn:nrel_example/LIME_ADDITION> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_cc6644d1> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/in1_19a1adfd>,
-        <urn:nrel_example/water-out_6aa6c0af> ;
-    ns1:connectsAt <urn:nrel_example/in1_19a1adfd>,
-        <urn:nrel_example/water-out_6aa6c0af> ;
-    ns1:connectsFrom <urn:nrel_example/REVERSE_OSMOSIS1> ;
-    ns1:connectsTo <urn:nrel_example/DESAL_JUNCTION> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_cfb0f00c> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_dd387e51>,
-        <urn:nrel_example/water-out_2db87a89> ;
-    ns1:connectsAt <urn:nrel_example/water-in_dd387e51>,
-        <urn:nrel_example/water-out_2db87a89> ;
-    ns1:connectsFrom <urn:nrel_example/STORAGE_TANK_2> ;
-    ns1:connectsTo <urn:nrel_example/UV-AOP> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_d7edea59> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/waste-in_4a7aff07>,
-        <urn:nrel_example/waste-out_5628b407> ;
-    ns1:connectsAt <urn:nrel_example/waste-in_4a7aff07>,
-        <urn:nrel_example/waste-out_5628b407> ;
-    ns1:connectsFrom <urn:nrel_example/MEDIA_FILTRATION> ;
-    ns1:connectsTo <urn:nrel_example/BACKWASH> ;
-    ns1:hasMedium ns1:Medium-Waste .
-
-<urn:nrel_example/name_d9601fa0> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in1_8a9f4821>,
-        <urn:nrel_example/water-out_5e7d89b4> ;
-    ns1:connectsAt <urn:nrel_example/water-in1_8a9f4821>,
-        <urn:nrel_example/water-out_5e7d89b4> ;
-    ns1:connectsFrom <urn:nrel_example/PUMP1.1> ;
-    ns1:connectsTo <urn:nrel_example/MIXER> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_da4c4885> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_315f6ca5>,
-        <urn:nrel_example/water-out_c968e37f> ;
-    ns1:connectsAt <urn:nrel_example/water-in_315f6ca5>,
-        <urn:nrel_example/water-out_c968e37f> ;
-    ns1:connectsFrom <urn:nrel_example/FECL3_ADDITION> ;
-    ns1:connectsTo <urn:nrel_example/CHLORINATION> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_dff6d2e6> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_ad08f47c>,
-        <urn:nrel_example/water-out_cba97b9d> ;
-    ns1:connectsAt <urn:nrel_example/water-in_ad08f47c>,
-        <urn:nrel_example/water-out_cba97b9d> ;
-    ns1:connectsFrom <urn:nrel_example/FEED> ;
-    ns1:connectsTo <urn:nrel_example/INTAKE> ;
-    ns1:hasMedium ns1:Medium-Water .
-
-<urn:nrel_example/name_e2b2a6de> a ns1:Pipe ;
-    rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_3b46a406>,
-        <urn:nrel_example/water-out_cb9d9a76> ;
-    ns1:connectsAt <urn:nrel_example/water-in_3b46a406>,
-        <urn:nrel_example/water-out_cb9d9a76> ;
+    ns1:cnx <urn:nrel_example/water-in_6375d3d6>,
+        <urn:nrel_example/water-out_439194de> ;
+    ns1:connectsAt <urn:nrel_example/water-in_6375d3d6>,
+        <urn:nrel_example/water-out_439194de> ;
     ns1:connectsFrom <urn:nrel_example/STATIC_MIXER> ;
     ns1:connectsTo <urn:nrel_example/STORAGE_TANK_1> ;
     ns1:hasMedium ns1:Medium-Water .
 
-<urn:nrel_example/name_ec5cbfef> a ns1:Pipe ;
+<urn:nrel_example/name_132af972> a ns1:Pipe ;
     rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/waste-in1_a6e0d202>,
-        <urn:nrel_example/waste-out_578a1604> ;
-    ns1:connectsAt <urn:nrel_example/waste-in1_a6e0d202>,
-        <urn:nrel_example/waste-out_578a1604> ;
-    ns1:connectsFrom <urn:nrel_example/PRESSURE_EXCHANGER> ;
-    ns1:connectsTo <urn:nrel_example/DISPOSAL> ;
-    ns1:hasMedium ns1:Medium-Waste .
+    ns1:cnx <urn:nrel_example/chemical-in_7966ba68>,
+        <urn:nrel_example/chemical-out_1cf68346> ;
+    ns1:connectsAt <urn:nrel_example/chemical-in_7966ba68>,
+        <urn:nrel_example/chemical-out_1cf68346> ;
+    ns1:connectsFrom <urn:nrel_example/FECL3_PUMP> ;
+    ns1:connectsTo <urn:nrel_example/FECL3_DOSING_POINT> ;
+    ns1:hasMedium ns1:Medium-Chemical .
 
-<urn:nrel_example/name_f81bd82a> a ns1:Pipe ;
+<urn:nrel_example/name_15552433> a ns1:Pipe ;
     rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/waste-in_016b9d72>,
-        <urn:nrel_example/waste-out_04894540> ;
-    ns1:connectsAt <urn:nrel_example/waste-in_016b9d72>,
-        <urn:nrel_example/waste-out_04894540> ;
-    ns1:connectsFrom <urn:nrel_example/REVERSE_OSMOSIS1> ;
-    ns1:connectsTo <urn:nrel_example/PRESSURE_EXCHANGER> ;
-    ns1:hasMedium ns1:Medium-Waste .
+    ns1:cnx <urn:nrel_example/water-in_c3082278>,
+        <urn:nrel_example/water-out_1aa23458> ;
+    ns1:connectsAt <urn:nrel_example/water-in_c3082278>,
+        <urn:nrel_example/water-out_1aa23458> ;
+    ns1:connectsFrom <urn:nrel_example/STORAGE_TANK_1> ;
+    ns1:connectsTo <urn:nrel_example/MEDIA_FILTER> ;
+    ns1:hasMedium ns1:Medium-Water .
 
-<urn:nrel_example/name_ff80005a> a ns1:Pipe ;
+<urn:nrel_example/name_18d611bf> a ns1:Pipe ;
     rdfs:label "Pipe" ;
-    ns1:cnx <urn:nrel_example/water-in_ccdf3615>,
-        <urn:nrel_example/water-out_d03d9a7a> ;
-    ns1:connectsAt <urn:nrel_example/water-in_ccdf3615>,
-        <urn:nrel_example/water-out_d03d9a7a> ;
+    ns1:cnx <urn:nrel_example/chemical-in_22cee4f5>,
+        <urn:nrel_example/chemical-out_30291eac> ;
+    ns1:connectsAt <urn:nrel_example/chemical-in_22cee4f5>,
+        <urn:nrel_example/chemical-out_30291eac> ;
+    ns1:connectsFrom <urn:nrel_example/CO2_CANISTER> ;
+    ns1:connectsTo <urn:nrel_example/CO2_PUMP> ;
+    ns1:hasMedium ns1:Medium-Chemical .
+
+<urn:nrel_example/name_2030dc3a> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_5ede07a5>,
+        <urn:nrel_example/water-out_f948436a> ;
+    ns1:connectsAt <urn:nrel_example/water-in_5ede07a5>,
+        <urn:nrel_example/water-out_f948436a> ;
+    ns1:connectsFrom <urn:nrel_example/CARTRIDGE_FILTER> ;
+    ns1:connectsTo <urn:nrel_example/SEPARATOR> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_237d4acf> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_ee6e1048>,
+        <urn:nrel_example/water-out1_21b902fc> ;
+    ns1:connectsAt <urn:nrel_example/water-in_ee6e1048>,
+        <urn:nrel_example/water-out1_21b902fc> ;
+    ns1:connectsFrom <urn:nrel_example/SEPARATOR> ;
+    ns1:connectsTo <urn:nrel_example/PUMP1.1> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_2b70b9be> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_a47ee538>,
+        <urn:nrel_example/water-out_048f2c93> ;
+    ns1:connectsAt <urn:nrel_example/water-in_a47ee538>,
+        <urn:nrel_example/water-out_048f2c93> ;
+    ns1:connectsFrom <urn:nrel_example/UV-AOP-Reactor> ;
+    ns1:connectsTo <urn:nrel_example/CO2_DOSING_POINT> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_31fa6da1> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_8525da93>,
+        <urn:nrel_example/water-out_59316dbc> ;
+    ns1:connectsAt <urn:nrel_example/water-in_8525da93>,
+        <urn:nrel_example/water-out_59316dbc> ;
     ns1:connectsFrom <urn:nrel_example/MIXER> ;
     ns1:connectsTo <urn:nrel_example/REVERSE_OSMOSIS1> ;
     ns1:hasMedium ns1:Medium-Water .
 
-<urn:nrel_example/ANTI_SCALANT> a ns1:ChemicalAddition ;
-    rdfs:label "ChemicalAddition" ;
-    ns1:cnx <urn:nrel_example/water-in_e1549909>,
-        <urn:nrel_example/water-out_aa8e9ee6> ;
-    ns1:connectedFrom <urn:nrel_example/MEDIA_FILTRATION> ;
-    ns1:connectedThrough <urn:nrel_example/name_b84041e6>,
-        <urn:nrel_example/name_c75e30d4> ;
-    ns1:connectedTo <urn:nrel_example/CARTRIDGE_FILTRATION> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_e1549909>,
-        <urn:nrel_example/water-out_aa8e9ee6> .
+<urn:nrel_example/name_38ea9a35> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in2_f0402371>,
+        <urn:nrel_example/water-out_1f85ad4c> ;
+    ns1:connectsAt <urn:nrel_example/water-in2_f0402371>,
+        <urn:nrel_example/water-out_1f85ad4c> ;
+    ns1:connectsFrom <urn:nrel_example/PUMP1.2> ;
+    ns1:connectsTo <urn:nrel_example/MIXER> ;
+    ns1:hasMedium ns1:Medium-Water .
 
-<urn:nrel_example/BACKWASH> a ns1:BackwashSolidsHandling ;
-    rdfs:label "BackwashSolidsHandling" ;
-    ns1:cnx <urn:nrel_example/waste-in_4a7aff07>,
-        <urn:nrel_example/waste-out_ab462124> ;
-    ns1:connectedFrom <urn:nrel_example/MEDIA_FILTRATION> ;
-    ns1:connectedThrough <urn:nrel_example/name_27daffe7>,
-        <urn:nrel_example/name_d7edea59> ;
-    ns1:connectedTo <urn:nrel_example/LANDFILL> ;
-    ns1:hasConnectionPoint <urn:nrel_example/waste-in_4a7aff07>,
-        <urn:nrel_example/waste-out_ab462124> .
+<urn:nrel_example/name_409234f1> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_f3e9001d>,
+        <urn:nrel_example/water-out_4b94bf2d> ;
+    ns1:connectsAt <urn:nrel_example/water-in_f3e9001d>,
+        <urn:nrel_example/water-out_4b94bf2d> ;
+    ns1:connectsFrom <urn:nrel_example/OZONE_DOSING_POINT> ;
+    ns1:connectsTo <urn:nrel_example/UV-AOP-Reactor> ;
+    ns1:hasMedium ns1:Medium-Water .
 
-<urn:nrel_example/CARTRIDGE_FILTRATION> a ns1:CartridgeFiltration ;
-    rdfs:label "CartridgeFiltration" ;
-    ns1:cnx <urn:nrel_example/water-in_504f0933>,
-        <urn:nrel_example/water-out_608b598a> ;
-    ns1:connectedFrom <urn:nrel_example/ANTI_SCALANT> ;
-    ns1:connectedThrough <urn:nrel_example/name_011e97c6>,
-        <urn:nrel_example/name_c75e30d4> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_504f0933>,
-        <urn:nrel_example/water-out_608b598a> .
+<urn:nrel_example/name_447c822f> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_3a794dcc>,
+        <urn:nrel_example/water-out_ed173ddf> ;
+    ns1:connectsAt <urn:nrel_example/water-in_3a794dcc>,
+        <urn:nrel_example/water-out_ed173ddf> ;
+    ns1:connectsFrom <urn:nrel_example/MEDIA_FILTER> ;
+    ns1:connectsTo <urn:nrel_example/ANTI_SCALANT_DOSING_POINT> ;
+    ns1:hasMedium ns1:Medium-Water .
 
-<urn:nrel_example/CHLORINATION> a ns1:Chlorination ;
-    rdfs:label "Chlorination" ;
-    ns1:cnx <urn:nrel_example/water-in_315f6ca5>,
-        <urn:nrel_example/water-out_f5896552> ;
-    ns1:connectedFrom <urn:nrel_example/FECL3_ADDITION> ;
-    ns1:connectedThrough <urn:nrel_example/name_0d2ef173>,
-        <urn:nrel_example/name_da4c4885> ;
+<urn:nrel_example/name_4a81ca1b> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_291ea0ba>,
+        <urn:nrel_example/water-out_e92e66fe> ;
+    ns1:connectsAt <urn:nrel_example/water-in_291ea0ba>,
+        <urn:nrel_example/water-out_e92e66fe> ;
+    ns1:connectsFrom <urn:nrel_example/INTAKE> ;
+    ns1:connectsTo <urn:nrel_example/FECL3_DOSING_POINT> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_57cf70b7> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_ba1092d4>,
+        <urn:nrel_example/water-out1_1815d7cb> ;
+    ns1:connectsAt <urn:nrel_example/water-in_ba1092d4>,
+        <urn:nrel_example/water-out1_1815d7cb> ;
+    ns1:connectsFrom <urn:nrel_example/PRESSURE_EXCHANGER> ;
+    ns1:connectsTo <urn:nrel_example/PUMP1.2> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_7319d390> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_0a1df644>,
+        <urn:nrel_example/water-out_a3880ce4> ;
+    ns1:connectsAt <urn:nrel_example/water-in_0a1df644>,
+        <urn:nrel_example/water-out_a3880ce4> ;
+    ns1:connectsFrom <urn:nrel_example/CHLORINE_DOSING_POINT> ;
+    ns1:connectsTo <urn:nrel_example/CHLORINATION-BASIN> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_7c491d16> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/waste-in_594c150c>,
+        <urn:nrel_example/waste-out_7f40403a> ;
+    ns1:connectsAt <urn:nrel_example/waste-in_594c150c>,
+        <urn:nrel_example/waste-out_7f40403a> ;
+    ns1:connectsFrom <urn:nrel_example/BACKWASH_PUMP> ;
+    ns1:connectsTo <urn:nrel_example/BACKWASH_THICKENER> ;
+    ns1:hasMedium ns1:Medium-Waste .
+
+<urn:nrel_example/name_7caf51a9> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/chemical-in_7d8d7662>,
+        <urn:nrel_example/chemical-out_9b78eef6> ;
+    ns1:connectsAt <urn:nrel_example/chemical-in_7d8d7662>,
+        <urn:nrel_example/chemical-out_9b78eef6> ;
+    ns1:connectsFrom <urn:nrel_example/FECL3_TANK> ;
+    ns1:connectsTo <urn:nrel_example/FECL3_PUMP> ;
+    ns1:hasMedium ns1:Medium-Chemical .
+
+<urn:nrel_example/name_7cb9be78> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_e6b27d33>,
+        <urn:nrel_example/water-out_afada823> ;
+    ns1:connectsAt <urn:nrel_example/water-in_e6b27d33>,
+        <urn:nrel_example/water-out_afada823> ;
+    ns1:connectsFrom <urn:nrel_example/CO2_DOSING_POINT> ;
+    ns1:connectsTo <urn:nrel_example/LIME_DOSING_POINT> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_824e03df> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/waste-in_a4dac367>,
+        <urn:nrel_example/waste-out_e4c34a2d> ;
+    ns1:connectsAt <urn:nrel_example/waste-in_a4dac367>,
+        <urn:nrel_example/waste-out_e4c34a2d> ;
+    ns1:connectsFrom <urn:nrel_example/BACKWASH_THICKENER> ;
+    ns1:connectsTo <urn:nrel_example/DUMPSTER> ;
+    ns1:hasMedium ns1:Medium-Waste .
+
+<urn:nrel_example/name_84983af5> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_5bdc1e5a>,
+        <urn:nrel_example/water-out_d11bef6e> ;
+    ns1:connectsAt <urn:nrel_example/water-in_5bdc1e5a>,
+        <urn:nrel_example/water-out_d11bef6e> ;
+    ns1:connectsFrom <urn:nrel_example/STORAGE_TANK_2> ;
+    ns1:connectsTo <urn:nrel_example/OZONE_DOSING_POINT> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_897d365d> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/waste-in_653bf21c>,
+        <urn:nrel_example/waste-out_1ad52663> ;
+    ns1:connectsAt <urn:nrel_example/waste-in_653bf21c>,
+        <urn:nrel_example/waste-out_1ad52663> ;
+    ns1:connectsFrom <urn:nrel_example/MEDIA_FILTER> ;
+    ns1:connectsTo <urn:nrel_example/BACKWASH_PUMP> ;
+    ns1:hasMedium ns1:Medium-Waste .
+
+<urn:nrel_example/name_945da1a0> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in1_04a8e9f1>,
+        <urn:nrel_example/water-out2_783aaafc> ;
+    ns1:connectsAt <urn:nrel_example/water-in1_04a8e9f1>,
+        <urn:nrel_example/water-out2_783aaafc> ;
+    ns1:connectsFrom <urn:nrel_example/SEPARATOR> ;
+    ns1:connectsTo <urn:nrel_example/PRESSURE_EXCHANGER> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_96878711> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_b9eb8b85>,
+        <urn:nrel_example/water-out_65fb4626> ;
+    ns1:connectsAt <urn:nrel_example/water-in_b9eb8b85>,
+        <urn:nrel_example/water-out_65fb4626> ;
+    ns1:connectsFrom <urn:nrel_example/LIME_DOSING_POINT> ;
+    ns1:connectsTo <urn:nrel_example/STORAGE_TANK_3> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_9a179be7> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_301aa826>,
+        <urn:nrel_example/water-out_f4c38a43> ;
+    ns1:connectsAt <urn:nrel_example/water-in_301aa826>,
+        <urn:nrel_example/water-out_f4c38a43> ;
+    ns1:connectsFrom <urn:nrel_example/CHLORINATION-BASIN> ;
+    ns1:connectsTo <urn:nrel_example/STATIC_MIXER> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_9b1ae202> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_83805bc2>,
+        <urn:nrel_example/water-out_5b0a9c68> ;
+    ns1:connectsAt <urn:nrel_example/water-in_83805bc2>,
+        <urn:nrel_example/water-out_5b0a9c68> ;
+    ns1:connectsFrom <urn:nrel_example/REVERSE_OSMOSIS1> ;
+    ns1:connectsTo <urn:nrel_example/STORAGE_TANK_2> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_9dd79501> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/chemical-in_368bd531>,
+        <urn:nrel_example/chemical-out_e38268b4> ;
+    ns1:connectsAt <urn:nrel_example/chemical-in_368bd531>,
+        <urn:nrel_example/chemical-out_e38268b4> ;
+    ns1:connectsFrom <urn:nrel_example/CHLORINE_PUMP> ;
+    ns1:connectsTo <urn:nrel_example/CHLORINE_DOSING_POINT> ;
+    ns1:hasMedium ns1:Medium-Chemical .
+
+<urn:nrel_example/name_a2818eb0> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/waste-in_6d0a3378>,
+        <urn:nrel_example/waste-out_2ae79f13> ;
+    ns1:connectsAt <urn:nrel_example/waste-in_6d0a3378>,
+        <urn:nrel_example/waste-out_2ae79f13> ;
+    ns1:connectsFrom <urn:nrel_example/REVERSE_OSMOSIS1> ;
+    ns1:connectsTo <urn:nrel_example/PRESSURE_EXCHANGER> ;
+    ns1:hasMedium ns1:Medium-Waste .
+
+<urn:nrel_example/name_abc1c875> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/chemical-in_a939ae36>,
+        <urn:nrel_example/chemical-out_cadd25c2> ;
+    ns1:connectsAt <urn:nrel_example/chemical-in_a939ae36>,
+        <urn:nrel_example/chemical-out_cadd25c2> ;
+    ns1:connectsFrom <urn:nrel_example/CHLORINE_TANK> ;
+    ns1:connectsTo <urn:nrel_example/CHLORINE_PUMP> ;
+    ns1:hasMedium ns1:Medium-Chemical .
+
+<urn:nrel_example/name_c96c2bcb> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_375f9014>,
+        <urn:nrel_example/water-out_5ca5c285> ;
+    ns1:connectsAt <urn:nrel_example/water-in_375f9014>,
+        <urn:nrel_example/water-out_5ca5c285> ;
+    ns1:connectsFrom <urn:nrel_example/ANTI_SCALANT_DOSING_POINT> ;
+    ns1:connectsTo <urn:nrel_example/CARTRIDGE_FILTER> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_ca712149> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/chemical-in_d882ab0f>,
+        <urn:nrel_example/chemical-out_29b46a8c> ;
+    ns1:connectsAt <urn:nrel_example/chemical-in_d882ab0f>,
+        <urn:nrel_example/chemical-out_29b46a8c> ;
+    ns1:connectsFrom <urn:nrel_example/LIME_TANK> ;
+    ns1:connectsTo <urn:nrel_example/LIME_PUMP> ;
+    ns1:hasMedium ns1:Medium-Chemical .
+
+<urn:nrel_example/name_da21d417> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_0baaca11>,
+        <urn:nrel_example/water-out_be2e9479> ;
+    ns1:connectsAt <urn:nrel_example/water-in_0baaca11>,
+        <urn:nrel_example/water-out_be2e9479> ;
+    ns1:connectsFrom <urn:nrel_example/OCEAN> ;
+    ns1:connectsTo <urn:nrel_example/INTAKE> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_db729074> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/chemical-in_806320cc>,
+        <urn:nrel_example/chemical-out_1e15cb42> ;
+    ns1:connectsAt <urn:nrel_example/chemical-in_806320cc>,
+        <urn:nrel_example/chemical-out_1e15cb42> ;
+    ns1:connectsFrom <urn:nrel_example/ANTI_SCALANT_PUMP> ;
+    ns1:connectsTo <urn:nrel_example/ANTI_SCALANT_DOSING_POINT> ;
+    ns1:hasMedium ns1:Medium-Chemical .
+
+<urn:nrel_example/name_e4bde129> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in1_e944b223>,
+        <urn:nrel_example/water-out_1c408696> ;
+    ns1:connectsAt <urn:nrel_example/water-in1_e944b223>,
+        <urn:nrel_example/water-out_1c408696> ;
+    ns1:connectsFrom <urn:nrel_example/PUMP1.1> ;
+    ns1:connectsTo <urn:nrel_example/MIXER> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_e6e06f6b> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/waste-in1_65cd0a1a>,
+        <urn:nrel_example/waste-out_885cc82e> ;
+    ns1:connectsAt <urn:nrel_example/waste-in1_65cd0a1a>,
+        <urn:nrel_example/waste-out_885cc82e> ;
+    ns1:connectsFrom <urn:nrel_example/PRESSURE_EXCHANGER> ;
+    ns1:connectsTo <urn:nrel_example/DISPOSAL> ;
+    ns1:hasMedium ns1:Medium-Waste .
+
+<urn:nrel_example/name_e73ccfcf> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/chemical-in_9253e8e8>,
+        <urn:nrel_example/chemical-out_44b83807> ;
+    ns1:connectsAt <urn:nrel_example/chemical-in_9253e8e8>,
+        <urn:nrel_example/chemical-out_44b83807> ;
+    ns1:connectsFrom <urn:nrel_example/OZONE_GENERATOR> ;
+    ns1:connectsTo <urn:nrel_example/OZONE_PUMP> ;
+    ns1:hasMedium ns1:Medium-Chemical .
+
+<urn:nrel_example/name_e97eb9ef> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/water-in_0e9e2945>,
+        <urn:nrel_example/water-out_885e7c58> ;
+    ns1:connectsAt <urn:nrel_example/water-in_0e9e2945>,
+        <urn:nrel_example/water-out_885e7c58> ;
+    ns1:connectsFrom <urn:nrel_example/STORAGE_TANK_3> ;
+    ns1:connectsTo <urn:nrel_example/MUNICIPAL_WATER> ;
+    ns1:hasMedium ns1:Medium-Water .
+
+<urn:nrel_example/name_f3dc828d> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/chemical-in_0b05889c>,
+        <urn:nrel_example/chemical-out_12cf7d9a> ;
+    ns1:connectsAt <urn:nrel_example/chemical-in_0b05889c>,
+        <urn:nrel_example/chemical-out_12cf7d9a> ;
+    ns1:connectsFrom <urn:nrel_example/LIME_PUMP> ;
+    ns1:connectsTo <urn:nrel_example/LIME_DOSING_POINT> ;
+    ns1:hasMedium ns1:Medium-Chemical .
+
+<urn:nrel_example/name_fd5ef504> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/waste-in_f6d811d5>,
+        <urn:nrel_example/waste-out_82926b26> ;
+    ns1:connectsAt <urn:nrel_example/waste-in_f6d811d5>,
+        <urn:nrel_example/waste-out_82926b26> ;
+    ns1:connectsFrom <urn:nrel_example/DISPOSAL> ;
+    ns1:connectsTo <urn:nrel_example/OCEAN> ;
+    ns1:hasMedium ns1:Medium-Waste .
+
+<urn:nrel_example/name_fe371569> a ns1:Pipe ;
+    rdfs:label "Pipe" ;
+    ns1:cnx <urn:nrel_example/chemical-in_d0e4f8d1>,
+        <urn:nrel_example/chemical-out_486383a2> ;
+    ns1:connectsAt <urn:nrel_example/chemical-in_d0e4f8d1>,
+        <urn:nrel_example/chemical-out_486383a2> ;
+    ns1:connectsFrom <urn:nrel_example/OZONE_PUMP> ;
+    ns1:connectsTo <urn:nrel_example/OZONE_DOSING_POINT> ;
+    ns1:hasMedium ns1:Medium-Chemical .
+
+<urn:nrel_example/ANTI_SCALANT_PUMP> a ns1:DosingPump ;
+    rdfs:label "DosingPump" ;
+    ns1:cnx <urn:nrel_example/chemical-in_a8029a86>,
+        <urn:nrel_example/chemical-out_1e15cb42> ;
+    ns1:connectedFrom <urn:nrel_example/ANTI_SCALANT_TANK> ;
+    ns1:connectedThrough <urn:nrel_example/name_0536fd84>,
+        <urn:nrel_example/name_db729074> ;
+    ns1:connectedTo <urn:nrel_example/ANTI_SCALANT_DOSING_POINT> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-in_a8029a86>,
+        <urn:nrel_example/chemical-out_1e15cb42> .
+
+<urn:nrel_example/BACKWASH_PUMP> a ns1:BackwashPump ;
+    rdfs:label "BackwashPump" ;
+    ns1:cnx <urn:nrel_example/waste-in_653bf21c>,
+        <urn:nrel_example/waste-out_7f40403a> ;
+    ns1:connectedFrom <urn:nrel_example/MEDIA_FILTER> ;
+    ns1:connectedThrough <urn:nrel_example/name_7c491d16>,
+        <urn:nrel_example/name_897d365d> ;
+    ns1:connectedTo <urn:nrel_example/BACKWASH_THICKENER> ;
+    ns1:hasConnectionPoint <urn:nrel_example/waste-in_653bf21c>,
+        <urn:nrel_example/waste-out_7f40403a> .
+
+<urn:nrel_example/BACKWASH_THICKENER> a ns1:BackwashThickener ;
+    rdfs:label "BackwashThickener" ;
+    ns1:cnx <urn:nrel_example/waste-in_594c150c>,
+        <urn:nrel_example/waste-out_e4c34a2d> ;
+    ns1:connectedFrom <urn:nrel_example/BACKWASH_PUMP> ;
+    ns1:connectedThrough <urn:nrel_example/name_7c491d16>,
+        <urn:nrel_example/name_824e03df> ;
+    ns1:connectedTo <urn:nrel_example/DUMPSTER> ;
+    ns1:hasConnectionPoint <urn:nrel_example/waste-in_594c150c>,
+        <urn:nrel_example/waste-out_e4c34a2d> .
+
+<urn:nrel_example/CARTRIDGE_FILTER> a ns1:CartridgeFilter ;
+    rdfs:label "CartridgeFilter" ;
+    ns1:cnx <urn:nrel_example/water-in_375f9014>,
+        <urn:nrel_example/water-out_f948436a> ;
+    ns1:connectedFrom <urn:nrel_example/ANTI_SCALANT_DOSING_POINT> ;
+    ns1:connectedThrough <urn:nrel_example/name_2030dc3a>,
+        <urn:nrel_example/name_c96c2bcb> ;
+    ns1:connectedTo <urn:nrel_example/SEPARATOR> ;
+    ns1:hasConnectionPoint <urn:nrel_example/water-in_375f9014>,
+        <urn:nrel_example/water-out_f948436a> .
+
+<urn:nrel_example/CHLORINATION-BASIN> a ns1:ChlorinationBasin ;
+    rdfs:label "ChlorinationBasin" ;
+    ns1:cnx <urn:nrel_example/water-in_0a1df644>,
+        <urn:nrel_example/water-out_f4c38a43> ;
+    ns1:connectedFrom <urn:nrel_example/CHLORINE_DOSING_POINT> ;
+    ns1:connectedThrough <urn:nrel_example/name_7319d390>,
+        <urn:nrel_example/name_9a179be7> ;
     ns1:connectedTo <urn:nrel_example/STATIC_MIXER> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_315f6ca5>,
-        <urn:nrel_example/water-out_f5896552> .
+    ns1:hasConnectionPoint <urn:nrel_example/water-in_0a1df644>,
+        <urn:nrel_example/water-out_f4c38a43> .
 
-<urn:nrel_example/CO2_ADDITION> a ns1:CO2-Addition ;
-    rdfs:label "CO2-Addition" ;
-    ns1:cnx <urn:nrel_example/water-in_52ab045a>,
-        <urn:nrel_example/water-out_82434e70> ;
-    ns1:connectedFrom <urn:nrel_example/UV-AOP> ;
-    ns1:connectedThrough <urn:nrel_example/name_7f1f741a>,
-        <urn:nrel_example/name_cbd0b5e9> ;
-    ns1:connectedTo <urn:nrel_example/LIME_ADDITION> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_52ab045a>,
-        <urn:nrel_example/water-out_82434e70> .
+<urn:nrel_example/CHLORINE_PUMP> a ns1:DosingPump ;
+    rdfs:label "DosingPump" ;
+    ns1:cnx <urn:nrel_example/chemical-in_a939ae36>,
+        <urn:nrel_example/chemical-out_e38268b4> ;
+    ns1:connectedFrom <urn:nrel_example/CHLORINE_TANK> ;
+    ns1:connectedThrough <urn:nrel_example/name_9dd79501>,
+        <urn:nrel_example/name_abc1c875> ;
+    ns1:connectedTo <urn:nrel_example/CHLORINE_DOSING_POINT> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-in_a939ae36>,
+        <urn:nrel_example/chemical-out_e38268b4> .
+
+<urn:nrel_example/CO2_PUMP> a ns1:DosingPump ;
+    rdfs:label "DosingPump" ;
+    ns1:cnx <urn:nrel_example/chemical-in_22cee4f5>,
+        <urn:nrel_example/chemical-out_f95efea5> ;
+    ns1:connectedFrom <urn:nrel_example/CO2_CANISTER> ;
+    ns1:connectedThrough <urn:nrel_example/name_0658ad8f>,
+        <urn:nrel_example/name_18d611bf> ;
+    ns1:connectedTo <urn:nrel_example/CO2_DOSING_POINT> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-in_22cee4f5>,
+        <urn:nrel_example/chemical-out_f95efea5> .
 
 <urn:nrel_example/DISPOSAL> a ns1:Disposal ;
     rdfs:label "Disposal" ;
-    ns1:cnx <urn:nrel_example/waste-in1_a6e0d202>,
-        <urn:nrel_example/waste-in2_04edccba> ;
-    ns1:connectedFrom <urn:nrel_example/ENERGY_RECOVERY_DEVICE>,
-        <urn:nrel_example/PRESSURE_EXCHANGER> ;
-    ns1:connectedThrough <urn:nrel_example/name_250d1778>,
-        <urn:nrel_example/name_ec5cbfef> ;
-    ns1:hasConnectionPoint <urn:nrel_example/waste-in1_a6e0d202>,
-        <urn:nrel_example/waste-in2_04edccba> .
+    ns1:cnx <urn:nrel_example/waste-in1_65cd0a1a>,
+        <urn:nrel_example/waste-out_82926b26> ;
+    ns1:connectedFrom <urn:nrel_example/PRESSURE_EXCHANGER> ;
+    ns1:connectedThrough <urn:nrel_example/name_e6e06f6b>,
+        <urn:nrel_example/name_fd5ef504> ;
+    ns1:connectedTo <urn:nrel_example/OCEAN> ;
+    ns1:hasConnectionPoint <urn:nrel_example/waste-in1_65cd0a1a>,
+        <urn:nrel_example/waste-out_82926b26> .
 
-<urn:nrel_example/ENERGY_RECOVERY_DEVICE> a ns1:EnergyRecoveryDevice ;
-    rdfs:label "EnergyRecoveryDevice" ;
-    ns1:cnx <urn:nrel_example/waste-in_2411a42b>,
-        <urn:nrel_example/waste-out_d576ba4b> ;
-    ns1:connectedFrom <urn:nrel_example/REVERSE_OSMOSIS2> ;
-    ns1:connectedThrough <urn:nrel_example/name_250d1778>,
-        <urn:nrel_example/name_6abd3585> ;
-    ns1:connectedTo <urn:nrel_example/DISPOSAL> ;
-    ns1:hasConnectionPoint <urn:nrel_example/waste-in_2411a42b>,
-        <urn:nrel_example/waste-out_d576ba4b> .
-
-<urn:nrel_example/FECL3_ADDITION> a ns1:ChemicalAddition ;
-    rdfs:label "ChemicalAddition" ;
-    ns1:cnx <urn:nrel_example/water-in_5a035859>,
-        <urn:nrel_example/water-out_c968e37f> ;
-    ns1:connectedFrom <urn:nrel_example/INTAKE> ;
-    ns1:connectedThrough <urn:nrel_example/name_679d3706>,
-        <urn:nrel_example/name_da4c4885> ;
-    ns1:connectedTo <urn:nrel_example/CHLORINATION> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_5a035859>,
-        <urn:nrel_example/water-out_c968e37f> .
+<urn:nrel_example/FECL3_PUMP> a ns1:DosingPump ;
+    rdfs:label "DosingPump" ;
+    ns1:cnx <urn:nrel_example/chemical-in_7d8d7662>,
+        <urn:nrel_example/chemical-out_1cf68346> ;
+    ns1:connectedFrom <urn:nrel_example/FECL3_TANK> ;
+    ns1:connectedThrough <urn:nrel_example/name_132af972>,
+        <urn:nrel_example/name_7caf51a9> ;
+    ns1:connectedTo <urn:nrel_example/FECL3_DOSING_POINT> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-in_7d8d7662>,
+        <urn:nrel_example/chemical-out_1cf68346> .
 
 <urn:nrel_example/INTAKE> a ns1:Intake ;
     rdfs:label "Intake" ;
-    ns1:cnx <urn:nrel_example/water-in_ad08f47c>,
-        <urn:nrel_example/water-out_1b5d206c> ;
-    ns1:connectedFrom <urn:nrel_example/FEED> ;
-    ns1:connectedThrough <urn:nrel_example/name_679d3706>,
-        <urn:nrel_example/name_dff6d2e6> ;
-    ns1:connectedTo <urn:nrel_example/FECL3_ADDITION> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_ad08f47c>,
-        <urn:nrel_example/water-out_1b5d206c> .
+    ns1:cnx <urn:nrel_example/water-in_0baaca11>,
+        <urn:nrel_example/water-out_e92e66fe> ;
+    ns1:connectedFrom <urn:nrel_example/OCEAN> ;
+    ns1:connectedThrough <urn:nrel_example/name_4a81ca1b>,
+        <urn:nrel_example/name_da21d417> ;
+    ns1:connectedTo <urn:nrel_example/FECL3_DOSING_POINT> ;
+    ns1:hasConnectionPoint <urn:nrel_example/water-in_0baaca11>,
+        <urn:nrel_example/water-out_e92e66fe> .
 
-<urn:nrel_example/LIME_ADDITION> a ns1:ChemicalAddition ;
-    rdfs:label "ChemicalAddition" ;
-    ns1:cnx <urn:nrel_example/water-in_c731651c>,
-        <urn:nrel_example/water-out_d80ba9d7> ;
-    ns1:connectedFrom <urn:nrel_example/CO2_ADDITION> ;
-    ns1:connectedThrough <urn:nrel_example/name_8eed0a1d>,
-        <urn:nrel_example/name_cbd0b5e9> ;
-    ns1:connectedTo <urn:nrel_example/STORAGE_TANK_3> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_c731651c>,
-        <urn:nrel_example/water-out_d80ba9d7> .
+<urn:nrel_example/LIME_PUMP> a ns1:DosingPump ;
+    rdfs:label "DosingPump" ;
+    ns1:cnx <urn:nrel_example/chemical-in_d882ab0f>,
+        <urn:nrel_example/chemical-out_12cf7d9a> ;
+    ns1:connectedFrom <urn:nrel_example/LIME_TANK> ;
+    ns1:connectedThrough <urn:nrel_example/name_ca712149>,
+        <urn:nrel_example/name_f3dc828d> ;
+    ns1:connectedTo <urn:nrel_example/LIME_DOSING_POINT> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-in_d882ab0f>,
+        <urn:nrel_example/chemical-out_12cf7d9a> .
+
+<urn:nrel_example/OCEAN> a ns1:Ocean ;
+    rdfs:label "Ocean" ;
+    ns1:cnx <urn:nrel_example/waste-in_f6d811d5>,
+        <urn:nrel_example/water-out_be2e9479> ;
+    ns1:connectedFrom <urn:nrel_example/DISPOSAL> ;
+    ns1:connectedThrough <urn:nrel_example/name_da21d417>,
+        <urn:nrel_example/name_fd5ef504> ;
+    ns1:connectedTo <urn:nrel_example/INTAKE> ;
+    ns1:hasConnectionPoint <urn:nrel_example/waste-in_f6d811d5>,
+        <urn:nrel_example/water-out_be2e9479> .
+
+<urn:nrel_example/OZONE_PUMP> a ns1:DosingPump ;
+    rdfs:label "DosingPump" ;
+    ns1:cnx <urn:nrel_example/chemical-in_9253e8e8>,
+        <urn:nrel_example/chemical-out_486383a2> ;
+    ns1:connectedFrom <urn:nrel_example/OZONE_GENERATOR> ;
+    ns1:connectedThrough <urn:nrel_example/name_e73ccfcf>,
+        <urn:nrel_example/name_fe371569> ;
+    ns1:connectedTo <urn:nrel_example/OZONE_DOSING_POINT> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-in_9253e8e8>,
+        <urn:nrel_example/chemical-out_486383a2> .
 
 <urn:nrel_example/PUMP1.1> a ns1:Pump ;
     rdfs:label "Pump" ;
-    ns1:cnx <urn:nrel_example/water-in_7f16c28f>,
-        <urn:nrel_example/water-out_5e7d89b4> ;
+    ns1:cnx <urn:nrel_example/water-in_ee6e1048>,
+        <urn:nrel_example/water-out_1c408696> ;
     ns1:connectedFrom <urn:nrel_example/SEPARATOR> ;
-    ns1:connectedThrough <urn:nrel_example/name_50fdd618>,
-        <urn:nrel_example/name_d9601fa0> ;
+    ns1:connectedThrough <urn:nrel_example/name_237d4acf>,
+        <urn:nrel_example/name_e4bde129> ;
     ns1:connectedTo <urn:nrel_example/MIXER> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_7f16c28f>,
-        <urn:nrel_example/water-out_5e7d89b4> .
+    ns1:hasConnectionPoint <urn:nrel_example/water-in_ee6e1048>,
+        <urn:nrel_example/water-out_1c408696> .
 
 <urn:nrel_example/PUMP1.2> a ns1:Pump ;
     rdfs:label "Pump" ;
-    ns1:cnx <urn:nrel_example/water-in_517a050e>,
-        <urn:nrel_example/water-out_0f03f4ae> ;
+    ns1:cnx <urn:nrel_example/water-in_ba1092d4>,
+        <urn:nrel_example/water-out_1f85ad4c> ;
     ns1:connectedFrom <urn:nrel_example/PRESSURE_EXCHANGER> ;
-    ns1:connectedThrough <urn:nrel_example/name_4fa3ac8c>,
-        <urn:nrel_example/name_5e013d29> ;
+    ns1:connectedThrough <urn:nrel_example/name_38ea9a35>,
+        <urn:nrel_example/name_57cf70b7> ;
     ns1:connectedTo <urn:nrel_example/MIXER> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_517a050e>,
-        <urn:nrel_example/water-out_0f03f4ae> .
-
-<urn:nrel_example/PUMP2.1> a ns1:Pump ;
-    rdfs:label "Pump" ;
-    ns1:cnx <urn:nrel_example/water-in_72ad7251>,
-        <urn:nrel_example/water-out_70511b47> ;
-    ns1:connectedThrough <urn:nrel_example/name_1df5d1b6>,
-        <urn:nrel_example/name_3aa1398a> ;
-    ns1:connectedTo <urn:nrel_example/REVERSE_OSMOSIS2> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_72ad7251>,
-        <urn:nrel_example/water-out_70511b47> .
+    ns1:hasConnectionPoint <urn:nrel_example/water-in_ba1092d4>,
+        <urn:nrel_example/water-out_1f85ad4c> .
 
 <urn:nrel_example/STATIC_MIXER> a ns1:StaticMixer ;
     rdfs:label "StaticMixer" ;
-    ns1:cnx <urn:nrel_example/water-in_42ce3d2a>,
-        <urn:nrel_example/water-out_cb9d9a76> ;
-    ns1:connectedFrom <urn:nrel_example/CHLORINATION> ;
-    ns1:connectedThrough <urn:nrel_example/name_0d2ef173>,
-        <urn:nrel_example/name_e2b2a6de> ;
+    ns1:cnx <urn:nrel_example/water-in_301aa826>,
+        <urn:nrel_example/water-out_439194de> ;
+    ns1:connectedFrom <urn:nrel_example/CHLORINATION-BASIN> ;
+    ns1:connectedThrough <urn:nrel_example/name_116bc15e>,
+        <urn:nrel_example/name_9a179be7> ;
     ns1:connectedTo <urn:nrel_example/STORAGE_TANK_1> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_42ce3d2a>,
-        <urn:nrel_example/water-out_cb9d9a76> .
+    ns1:hasConnectionPoint <urn:nrel_example/water-in_301aa826>,
+        <urn:nrel_example/water-out_439194de> .
 
 <urn:nrel_example/STORAGE_TANK_1> a ns1:StorageTank ;
     rdfs:label "StorageTank" ;
-    ns1:cnx <urn:nrel_example/water-in_3b46a406>,
-        <urn:nrel_example/water-out_6df61a88> ;
+    ns1:cnx <urn:nrel_example/water-in_6375d3d6>,
+        <urn:nrel_example/water-out_1aa23458> ;
     ns1:connectedFrom <urn:nrel_example/STATIC_MIXER> ;
-    ns1:connectedThrough <urn:nrel_example/name_8c83df20>,
-        <urn:nrel_example/name_e2b2a6de> ;
-    ns1:connectedTo <urn:nrel_example/MEDIA_FILTRATION> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_3b46a406>,
-        <urn:nrel_example/water-out_6df61a88> .
+    ns1:connectedThrough <urn:nrel_example/name_116bc15e>,
+        <urn:nrel_example/name_15552433> ;
+    ns1:connectedTo <urn:nrel_example/MEDIA_FILTER> ;
+    ns1:hasConnectionPoint <urn:nrel_example/water-in_6375d3d6>,
+        <urn:nrel_example/water-out_1aa23458> .
 
 <urn:nrel_example/STORAGE_TANK_2> a ns1:StorageTank ;
     rdfs:label "StorageTank" ;
-    ns1:cnx <urn:nrel_example/water-in_3027ed29>,
-        <urn:nrel_example/water-out_2db87a89> ;
-    ns1:connectedThrough <urn:nrel_example/name_569fd65a>,
-        <urn:nrel_example/name_cfb0f00c> ;
-    ns1:connectedTo <urn:nrel_example/UV-AOP> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_3027ed29>,
-        <urn:nrel_example/water-out_2db87a89> .
+    ns1:cnx <urn:nrel_example/water-in_83805bc2>,
+        <urn:nrel_example/water-out_d11bef6e> ;
+    ns1:connectedFrom <urn:nrel_example/REVERSE_OSMOSIS1> ;
+    ns1:connectedThrough <urn:nrel_example/name_84983af5>,
+        <urn:nrel_example/name_9b1ae202> ;
+    ns1:connectedTo <urn:nrel_example/OZONE_DOSING_POINT> ;
+    ns1:hasConnectionPoint <urn:nrel_example/water-in_83805bc2>,
+        <urn:nrel_example/water-out_d11bef6e> .
 
 <urn:nrel_example/STORAGE_TANK_3> a ns1:StorageTank ;
     rdfs:label "StorageTank" ;
-    ns1:cnx <urn:nrel_example/water-in_c51a5825>,
-        <urn:nrel_example/water-out_21c994bd> ;
-    ns1:connectedFrom <urn:nrel_example/LIME_ADDITION> ;
-    ns1:connectedThrough <urn:nrel_example/name_8eed0a1d>,
-        <urn:nrel_example/name_c1b2b64e> ;
+    ns1:cnx <urn:nrel_example/water-in_b9eb8b85>,
+        <urn:nrel_example/water-out_885e7c58> ;
+    ns1:connectedFrom <urn:nrel_example/LIME_DOSING_POINT> ;
+    ns1:connectedThrough <urn:nrel_example/name_96878711>,
+        <urn:nrel_example/name_e97eb9ef> ;
     ns1:connectedTo <urn:nrel_example/MUNICIPAL_WATER> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_c51a5825>,
-        <urn:nrel_example/water-out_21c994bd> .
+    ns1:hasConnectionPoint <urn:nrel_example/water-in_b9eb8b85>,
+        <urn:nrel_example/water-out_885e7c58> .
 
-<urn:nrel_example/UV-AOP> a ns1:UV-AOP ;
+<urn:nrel_example/UV-AOP-Reactor> a ns1:UV-AOP ;
     rdfs:label "UV-AOP" ;
-    ns1:cnx <urn:nrel_example/water-in_dd387e51>,
-        <urn:nrel_example/water-out_ea26c167> ;
-    ns1:connectedFrom <urn:nrel_example/STORAGE_TANK_2> ;
-    ns1:connectedThrough <urn:nrel_example/name_7f1f741a>,
-        <urn:nrel_example/name_cfb0f00c> ;
-    ns1:connectedTo <urn:nrel_example/CO2_ADDITION> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_dd387e51>,
-        <urn:nrel_example/water-out_ea26c167> .
+    ns1:cnx <urn:nrel_example/water-in_f3e9001d>,
+        <urn:nrel_example/water-out_048f2c93> ;
+    ns1:connectedFrom <urn:nrel_example/OZONE_DOSING_POINT> ;
+    ns1:connectedThrough <urn:nrel_example/name_2b70b9be>,
+        <urn:nrel_example/name_409234f1> ;
+    ns1:connectedTo <urn:nrel_example/CO2_DOSING_POINT> ;
+    ns1:contains <urn:nrel_example/uvlightid_5988d601> ;
+    ns1:hasConnectionPoint <urn:nrel_example/water-in_f3e9001d>,
+        <urn:nrel_example/water-out_048f2c93> .
 
-<urn:nrel_example/DESAL_JUNCTION> a ns1:Junction ;
-    rdfs:label "Junction" ;
-    ns1:cnx <urn:nrel_example/in1_19a1adfd>,
-        <urn:nrel_example/in2_28c58a03>,
-        <urn:nrel_example/out1_d80f2451> ;
-    ns1:connectedFrom <urn:nrel_example/REVERSE_OSMOSIS1>,
-        <urn:nrel_example/REVERSE_OSMOSIS2> ;
-    ns1:connectedThrough <urn:nrel_example/name_49a35ac9>,
-        <urn:nrel_example/name_569fd65a>,
-        <urn:nrel_example/name_cc6644d1> ;
-    ns1:connectedTo <urn:nrel_example/STORAGE_TANK_2> ;
-    ns1:hasConnectionPoint <urn:nrel_example/in1_19a1adfd>,
-        <urn:nrel_example/in2_28c58a03>,
-        <urn:nrel_example/out1_d80f2451> ;
-    ns1:hasMedium ns1:Medium-Water .
+<urn:nrel_example/ANTI_SCALANT_DOSING_POINT> a ns1:DosingPoint ;
+    rdfs:label "DosingPoint" ;
+    ns1:cnx <urn:nrel_example/chemical-in_806320cc>,
+        <urn:nrel_example/water-in_3a794dcc>,
+        <urn:nrel_example/water-out_5ca5c285> ;
+    ns1:connectedFrom <urn:nrel_example/ANTI_SCALANT_PUMP>,
+        <urn:nrel_example/MEDIA_FILTER> ;
+    ns1:connectedThrough <urn:nrel_example/name_447c822f>,
+        <urn:nrel_example/name_c96c2bcb>,
+        <urn:nrel_example/name_db729074> ;
+    ns1:connectedTo <urn:nrel_example/CARTRIDGE_FILTER> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-in_806320cc>,
+        <urn:nrel_example/water-in_3a794dcc>,
+        <urn:nrel_example/water-out_5ca5c285> .
 
-<urn:nrel_example/PRETREATMENT_JUNCTION> a ns1:Junction ;
-    rdfs:label "Junction" ;
-    ns1:cnx <urn:nrel_example/in1_a500acda>,
-        <urn:nrel_example/out1_5cc24936>,
-        <urn:nrel_example/out2_a2002266> ;
-    ns1:connectedFrom <urn:nrel_example/CARTRIDGE_FILTRATION> ;
-    ns1:connectedThrough <urn:nrel_example/name_011e97c6>,
-        <urn:nrel_example/name_1df5d1b6>,
-        <urn:nrel_example/name_97b35d84> ;
-    ns1:connectedTo <urn:nrel_example/PUMP2.1>,
-        <urn:nrel_example/SEPARATOR> ;
-    ns1:hasConnectionPoint <urn:nrel_example/in1_a500acda>,
-        <urn:nrel_example/out1_5cc24936>,
-        <urn:nrel_example/out2_a2002266> ;
-    ns1:hasMedium ns1:Medium-Water .
+<urn:nrel_example/CHLORINE_DOSING_POINT> a ns1:DosingPoint ;
+    rdfs:label "DosingPoint" ;
+    ns1:cnx <urn:nrel_example/chemical-in_368bd531>,
+        <urn:nrel_example/water-in_58ade42b>,
+        <urn:nrel_example/water-out_a3880ce4> ;
+    ns1:connectedFrom <urn:nrel_example/CHLORINE_PUMP>,
+        <urn:nrel_example/FECL3_DOSING_POINT> ;
+    ns1:connectedThrough <urn:nrel_example/name_02dc0d91>,
+        <urn:nrel_example/name_7319d390>,
+        <urn:nrel_example/name_9dd79501> ;
+    ns1:connectedTo <urn:nrel_example/CHLORINATION-BASIN> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-in_368bd531>,
+        <urn:nrel_example/water-in_58ade42b>,
+        <urn:nrel_example/water-out_a3880ce4> .
 
-<urn:nrel_example/MEDIA_FILTRATION> a ns1:MediaFiltration ;
-    rdfs:label "MediaFiltration" ;
-    ns1:cnx <urn:nrel_example/waste-out_5628b407>,
-        <urn:nrel_example/water-in_2baf56cd>,
-        <urn:nrel_example/water-out_0ed60455> ;
+<urn:nrel_example/CO2_DOSING_POINT> a ns1:DosingPoint ;
+    rdfs:label "DosingPoint" ;
+    ns1:cnx <urn:nrel_example/chemical-in_b8583db5>,
+        <urn:nrel_example/water-in_a47ee538>,
+        <urn:nrel_example/water-out_afada823> ;
+    ns1:connectedFrom <urn:nrel_example/CO2_PUMP>,
+        <urn:nrel_example/UV-AOP-Reactor> ;
+    ns1:connectedThrough <urn:nrel_example/name_0658ad8f>,
+        <urn:nrel_example/name_2b70b9be>,
+        <urn:nrel_example/name_7cb9be78> ;
+    ns1:connectedTo <urn:nrel_example/LIME_DOSING_POINT> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-in_b8583db5>,
+        <urn:nrel_example/water-in_a47ee538>,
+        <urn:nrel_example/water-out_afada823> .
+
+<urn:nrel_example/FECL3_DOSING_POINT> a ns1:DosingPoint ;
+    rdfs:label "DosingPoint" ;
+    ns1:cnx <urn:nrel_example/chemical-in_7966ba68>,
+        <urn:nrel_example/water-in_291ea0ba>,
+        <urn:nrel_example/water-out_fd964cf2> ;
+    ns1:connectedFrom <urn:nrel_example/FECL3_PUMP>,
+        <urn:nrel_example/INTAKE> ;
+    ns1:connectedThrough <urn:nrel_example/name_02dc0d91>,
+        <urn:nrel_example/name_132af972>,
+        <urn:nrel_example/name_4a81ca1b> ;
+    ns1:connectedTo <urn:nrel_example/CHLORINE_DOSING_POINT> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-in_7966ba68>,
+        <urn:nrel_example/water-in_291ea0ba>,
+        <urn:nrel_example/water-out_fd964cf2> .
+
+<urn:nrel_example/LIME_DOSING_POINT> a ns1:DosingPoint ;
+    rdfs:label "DosingPoint" ;
+    ns1:cnx <urn:nrel_example/chemical-in_0b05889c>,
+        <urn:nrel_example/water-in_e6b27d33>,
+        <urn:nrel_example/water-out_65fb4626> ;
+    ns1:connectedFrom <urn:nrel_example/CO2_DOSING_POINT>,
+        <urn:nrel_example/LIME_PUMP> ;
+    ns1:connectedThrough <urn:nrel_example/name_7cb9be78>,
+        <urn:nrel_example/name_96878711>,
+        <urn:nrel_example/name_f3dc828d> ;
+    ns1:connectedTo <urn:nrel_example/STORAGE_TANK_3> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-in_0b05889c>,
+        <urn:nrel_example/water-in_e6b27d33>,
+        <urn:nrel_example/water-out_65fb4626> .
+
+<urn:nrel_example/MEDIA_FILTER> a ns1:MediaFilter ;
+    rdfs:label "MediaFilter" ;
+    ns1:cnx <urn:nrel_example/waste-out_1ad52663>,
+        <urn:nrel_example/water-in_c3082278>,
+        <urn:nrel_example/water-out_ed173ddf> ;
     ns1:connectedFrom <urn:nrel_example/STORAGE_TANK_1> ;
-    ns1:connectedThrough <urn:nrel_example/name_8c83df20>,
-        <urn:nrel_example/name_b84041e6>,
-        <urn:nrel_example/name_d7edea59> ;
-    ns1:connectedTo <urn:nrel_example/ANTI_SCALANT>,
-        <urn:nrel_example/BACKWASH> ;
-    ns1:hasConnectionPoint <urn:nrel_example/waste-out_5628b407>,
-        <urn:nrel_example/water-in_2baf56cd>,
-        <urn:nrel_example/water-out_0ed60455> .
+    ns1:connectedThrough <urn:nrel_example/name_15552433>,
+        <urn:nrel_example/name_447c822f>,
+        <urn:nrel_example/name_897d365d> ;
+    ns1:connectedTo <urn:nrel_example/ANTI_SCALANT_DOSING_POINT>,
+        <urn:nrel_example/BACKWASH_PUMP> ;
+    ns1:hasConnectionPoint <urn:nrel_example/waste-out_1ad52663>,
+        <urn:nrel_example/water-in_c3082278>,
+        <urn:nrel_example/water-out_ed173ddf> .
 
 <urn:nrel_example/MIXER> a ns1:Mixer2 ;
     rdfs:label "Mixer2" ;
-    ns1:cnx <urn:nrel_example/water-in1_8a9f4821>,
-        <urn:nrel_example/water-in2_39453662>,
-        <urn:nrel_example/water-out_d03d9a7a> ;
+    ns1:cnx <urn:nrel_example/water-in1_e944b223>,
+        <urn:nrel_example/water-in2_f0402371>,
+        <urn:nrel_example/water-out_59316dbc> ;
     ns1:connectedFrom <urn:nrel_example/PUMP1.1>,
         <urn:nrel_example/PUMP1.2> ;
-    ns1:connectedThrough <urn:nrel_example/name_5e013d29>,
-        <urn:nrel_example/name_d9601fa0>,
-        <urn:nrel_example/name_ff80005a> ;
+    ns1:connectedThrough <urn:nrel_example/name_31fa6da1>,
+        <urn:nrel_example/name_38ea9a35>,
+        <urn:nrel_example/name_e4bde129> ;
     ns1:connectedTo <urn:nrel_example/REVERSE_OSMOSIS1> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in1_8a9f4821>,
-        <urn:nrel_example/water-in2_39453662>,
-        <urn:nrel_example/water-out_d03d9a7a> .
+    ns1:hasConnectionPoint <urn:nrel_example/water-in1_e944b223>,
+        <urn:nrel_example/water-in2_f0402371>,
+        <urn:nrel_example/water-out_59316dbc> .
+
+<urn:nrel_example/OZONE_DOSING_POINT> a ns1:DosingPoint ;
+    rdfs:label "DosingPoint" ;
+    ns1:cnx <urn:nrel_example/chemical-in_d0e4f8d1>,
+        <urn:nrel_example/water-in_5bdc1e5a>,
+        <urn:nrel_example/water-out_4b94bf2d> ;
+    ns1:connectedFrom <urn:nrel_example/OZONE_PUMP>,
+        <urn:nrel_example/STORAGE_TANK_2> ;
+    ns1:connectedThrough <urn:nrel_example/name_409234f1>,
+        <urn:nrel_example/name_84983af5>,
+        <urn:nrel_example/name_fe371569> ;
+    ns1:connectedTo <urn:nrel_example/UV-AOP-Reactor> ;
+    ns1:hasConnectionPoint <urn:nrel_example/chemical-in_d0e4f8d1>,
+        <urn:nrel_example/water-in_5bdc1e5a>,
+        <urn:nrel_example/water-out_4b94bf2d> .
 
 <urn:nrel_example/REVERSE_OSMOSIS1> a ns1:ReverseOsmosis ;
     rdfs:label "ReverseOsmosis" ;
-    ns1:cnx <urn:nrel_example/waste-out_04894540>,
-        <urn:nrel_example/water-in_ccdf3615>,
-        <urn:nrel_example/water-out_6aa6c0af> ;
+    ns1:cnx <urn:nrel_example/waste-out_2ae79f13>,
+        <urn:nrel_example/water-in_8525da93>,
+        <urn:nrel_example/water-out_5b0a9c68> ;
     ns1:connectedFrom <urn:nrel_example/MIXER> ;
-    ns1:connectedThrough <urn:nrel_example/name_cc6644d1>,
-        <urn:nrel_example/name_f81bd82a>,
-        <urn:nrel_example/name_ff80005a> ;
-    ns1:connectedTo <urn:nrel_example/PRESSURE_EXCHANGER> ;
-    ns1:hasConnectionPoint <urn:nrel_example/waste-out_04894540>,
-        <urn:nrel_example/water-in_ccdf3615>,
-        <urn:nrel_example/water-out_6aa6c0af> .
-
-<urn:nrel_example/REVERSE_OSMOSIS2> a ns1:ReverseOsmosis ;
-    rdfs:label "ReverseOsmosis" ;
-    ns1:cnx <urn:nrel_example/waste-out_82b132e0>,
-        <urn:nrel_example/water-in_157f4907>,
-        <urn:nrel_example/water-out_6c55ce83> ;
-    ns1:connectedFrom <urn:nrel_example/PUMP2.1> ;
-    ns1:connectedThrough <urn:nrel_example/name_3aa1398a>,
-        <urn:nrel_example/name_49a35ac9>,
-        <urn:nrel_example/name_6abd3585> ;
-    ns1:connectedTo <urn:nrel_example/ENERGY_RECOVERY_DEVICE> ;
-    ns1:hasConnectionPoint <urn:nrel_example/waste-out_82b132e0>,
-        <urn:nrel_example/water-in_157f4907>,
-        <urn:nrel_example/water-out_6c55ce83> .
+    ns1:connectedThrough <urn:nrel_example/name_31fa6da1>,
+        <urn:nrel_example/name_9b1ae202>,
+        <urn:nrel_example/name_a2818eb0> ;
+    ns1:connectedTo <urn:nrel_example/PRESSURE_EXCHANGER>,
+        <urn:nrel_example/STORAGE_TANK_2> ;
+    ns1:hasConnectionPoint <urn:nrel_example/waste-out_2ae79f13>,
+        <urn:nrel_example/water-in_8525da93>,
+        <urn:nrel_example/water-out_5b0a9c68> .
 
 <urn:nrel_example/SEPARATOR> a ns1:Separator ;
     rdfs:label "Separator" ;
-    ns1:cnx <urn:nrel_example/water-in_192ae26c>,
-        <urn:nrel_example/water-out1_7d9018e3>,
-        <urn:nrel_example/water-out2_8058d1bb> ;
-    ns1:connectedThrough <urn:nrel_example/name_50fdd618>,
-        <urn:nrel_example/name_97b35d84>,
-        <urn:nrel_example/name_bdb8c024> ;
+    ns1:cnx <urn:nrel_example/water-in_5ede07a5>,
+        <urn:nrel_example/water-out1_21b902fc>,
+        <urn:nrel_example/water-out2_783aaafc> ;
+    ns1:connectedFrom <urn:nrel_example/CARTRIDGE_FILTER> ;
+    ns1:connectedThrough <urn:nrel_example/name_2030dc3a>,
+        <urn:nrel_example/name_237d4acf>,
+        <urn:nrel_example/name_945da1a0> ;
     ns1:connectedTo <urn:nrel_example/PRESSURE_EXCHANGER>,
         <urn:nrel_example/PUMP1.1> ;
-    ns1:hasConnectionPoint <urn:nrel_example/water-in_192ae26c>,
-        <urn:nrel_example/water-out1_7d9018e3>,
-        <urn:nrel_example/water-out2_8058d1bb> .
+    ns1:hasConnectionPoint <urn:nrel_example/water-in_5ede07a5>,
+        <urn:nrel_example/water-out1_21b902fc>,
+        <urn:nrel_example/water-out2_783aaafc> .
 
 <urn:nrel_example/PRESSURE_EXCHANGER> a ns1:PressureExchanger ;
     rdfs:label "PressureExchanger" ;
-    ns1:cnx <urn:nrel_example/waste-in_016b9d72>,
-        <urn:nrel_example/waste-out_578a1604>,
-        <urn:nrel_example/water-in1_5f7848c6>,
-        <urn:nrel_example/water-out1_8e4e93c0> ;
+    ns1:cnx <urn:nrel_example/waste-in_6d0a3378>,
+        <urn:nrel_example/waste-out_885cc82e>,
+        <urn:nrel_example/water-in1_04a8e9f1>,
+        <urn:nrel_example/water-out1_1815d7cb> ;
     ns1:connectedFrom <urn:nrel_example/REVERSE_OSMOSIS1>,
         <urn:nrel_example/SEPARATOR> ;
-    ns1:connectedThrough <urn:nrel_example/name_4fa3ac8c>,
-        <urn:nrel_example/name_bdb8c024>,
-        <urn:nrel_example/name_ec5cbfef>,
-        <urn:nrel_example/name_f81bd82a> ;
+    ns1:connectedThrough <urn:nrel_example/name_57cf70b7>,
+        <urn:nrel_example/name_945da1a0>,
+        <urn:nrel_example/name_a2818eb0>,
+        <urn:nrel_example/name_e6e06f6b> ;
     ns1:connectedTo <urn:nrel_example/DISPOSAL>,
         <urn:nrel_example/PUMP1.2> ;
-    ns1:hasConnectionPoint <urn:nrel_example/waste-in_016b9d72>,
-        <urn:nrel_example/waste-out_578a1604>,
-        <urn:nrel_example/water-in1_5f7848c6>,
-        <urn:nrel_example/water-out1_8e4e93c0> .
+    ns1:hasConnectionPoint <urn:nrel_example/waste-in_6d0a3378>,
+        <urn:nrel_example/waste-out_885cc82e>,
+        <urn:nrel_example/water-in1_04a8e9f1>,
+        <urn:nrel_example/water-out1_1815d7cb> .
 

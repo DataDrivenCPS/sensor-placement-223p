@@ -331,3 +331,19 @@ pipe-electricity:
     P:name a s223:Pipe ;
       s223:hasMedium s223:Medium-Electricity ;
       s223:cnx P:a, P:b .
+
+feed-pump:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:Feed rdfs:subClassOf s223:Equipment .
+    P:name a s223:Feed ;
+      s223:hasConnectionPoint P:water-in, P:water-out .
+  dependencies:
+  - template: water-inlet-cp
+    library: nrel-templates
+    args: {"name": "water-in"}
+  - template: water-outlet-cp
+    library: nrel-templates
+    args: {"name": "water-out"}

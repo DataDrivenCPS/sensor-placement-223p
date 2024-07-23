@@ -1,12 +1,32 @@
-feed:
+ocean:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:Ocean rdfs:subClassOf s223:Connectable .
+    P:name a s223:Ocean ;
+      s223:hasConnectionPoint P:waste-in, P:water-out .
+  dependencies:
+  - template: waste-inlet-cp
+    library: water-templates
+    args: {"name": "waste-in"}
+  - template: water-outlet-cp
+    library: nrel-templates
+    args: {"name": "water-out"}
+    
+
+feed-pump:
   body: >
     @prefix P: <urn:___param___#> .
     @prefix s223: <http://data.ashrae.org/standard223#> .
     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
     s223:Feed rdfs:subClassOf s223:Equipment .
     P:name a s223:Feed ;
-      s223:hasConnectionPoint P:water-out .
+      s223:hasConnectionPoint P:water-in, P:water-out .
   dependencies:
+  - template: water-inlet-cp
+    library: nrel-templates
+    args: {"name": "water-in"}
   - template: water-outlet-cp
     library: nrel-templates
     args: {"name": "water-out"}
@@ -27,15 +47,47 @@ intake:
     library: nrel-templates
     args: {"name": "water-out"}
 
-chemical-addition:
+chemical-tank:
   body: >
     @prefix P: <urn:___param___#> .
     @prefix s223: <http://data.ashrae.org/standard223#> .
     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-    s223:ChemicalAddition rdfs:subClassOf s223:Equipment .
-    P:name a s223:ChemicalAddition ;
-      s223:hasConnectionPoint P:water-in, P:water-out .
+    s223:ChemicalTank rdfs:subClassOf s223:Equipment .
+    P:name a s223:ChemicalTank ;
+      s223:hasConnectionPoint P:chemical-out .
   dependencies:
+  - template: chemical-outlet-cp
+    library: water-templates
+    args: {"name": "chemical-out"}
+  
+dosing-pump:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:DosingPump rdfs:subClassOf s223:Equipment .
+    P:name a s223:DosingPump ;
+      s223:hasConnectionPoint P:chemical-in, P:chemical-out .
+  dependencies:
+  - template: chemical-inlet-cp
+    library: water-templates
+    args: {"name": "chemical-in"}
+  - template: chemical-outlet-cp
+    library: water-templates
+    args: {"name": "chemical-out"}
+
+dosing-point:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:DosingPoint rdfs:subClassOf s223:Equipment .
+    P:name a s223:DosingPoint ;
+      s223:hasConnectionPoint P:chemical-in, P:water-in, P:water-out .
+  dependencies:
+  - template: chemical-inlet-cp
+    library: water-templates
+    args: {"name": "chemical-in"}
   - template: water-inlet-cp
     library: nrel-templates
     args: {"name": "water-in"}
@@ -43,13 +95,14 @@ chemical-addition:
     library: nrel-templates
     args: {"name": "water-out"}
 
-chlorination:
+
+chlorination-basin:
   body: >
     @prefix P: <urn:___param___#> .
     @prefix s223: <http://data.ashrae.org/standard223#> .
     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-    s223:Chlorination rdfs:subClassOf s223:Equipment .
-    P:name a s223:Chlorination ;
+    s223:ChlorinationBasin rdfs:subClassOf s223:Equipment .
+    P:name a s223:ChlorinationBasin ;
       s223:hasConnectionPoint P:water-in, P:water-out .
   dependencies:
   - template: water-inlet-cp
@@ -92,13 +145,13 @@ storage-tank:
     args: {"name": "water-out"}
 
 
-media-filtration:
+media-filter:
   body: >
     @prefix P: <urn:___param___#> .
     @prefix s223: <http://data.ashrae.org/standard223#> .
     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-    s223:MediaFiltration rdfs:subClassOf s223:Equipment .
-    P:name a s223:MediaFiltration ;
+    s223:MediaFilter rdfs:subClassOf s223:Equipment .
+    P:name a s223:MediaFilter ;
       s223:hasConnectionPoint P:water-in, P:water-out, P:waste-out .
   dependencies:
   - template: water-inlet-cp
@@ -111,13 +164,13 @@ media-filtration:
     library: water-templates
     args: {"name": "waste-out"}
 
-backwash-solids-handling:
+backwash-pump:
   body: >
     @prefix P: <urn:___param___#> .
     @prefix s223: <http://data.ashrae.org/standard223#> .
     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-    s223:BackwashSolidsHandling rdfs:subClassOf s223:Equipment .
-    P:name a s223:BackwashSolidsHandling ;
+    s223:BackwashPump rdfs:subClassOf s223:Equipment .
+    P:name a s223:BackwashPump ;
       s223:hasConnectionPoint P:waste-in, P:waste-out .
   dependencies:
   - template: waste-inlet-cp
@@ -127,26 +180,42 @@ backwash-solids-handling:
     library: water-templates
     args: {"name": "waste-out"}
 
-landfill: 
+backwash-thickener:
   body: >
     @prefix P: <urn:___param___#> .
     @prefix s223: <http://data.ashrae.org/standard223#> .
     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-    s223:Landfill rdfs:subClassOf s223:Equipment .
-    P:name a s223:Landfill ;
+    s223:BackwashThickener rdfs:subClassOf s223:Equipment .
+    P:name a s223:BackwashThickener ;
+      s223:hasConnectionPoint P:waste-in, P:waste-out .
+  dependencies:
+  - template: waste-inlet-cp
+    library: water-templates
+    args: {"name": "waste-in"}
+  - template: waste-outlet-cp
+    library: water-templates
+    args: {"name": "waste-out"}
+
+dumpster:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:Dumpster rdfs:subClassOf s223:Equipment .
+    P:name a s223:Dumpster ;
       s223:hasConnectionPoint P:waste-in .
   dependencies:
   - template: waste-inlet-cp
     library: water-templates
     args: {"name": "waste-in"}
 
-cartridge-filtration:
+cartridge-filter:
   body: >
     @prefix P: <urn:___param___#> .
     @prefix s223: <http://data.ashrae.org/standard223#> .
     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-    s223:CartridgeFiltration rdfs:subClassOf s223:Equipment .
-    P:name a s223:CartridgeFiltration ;
+    s223:CartridgeFilter rdfs:subClassOf s223:Equipment .
+    P:name a s223:CartridgeFilter ;
       s223:hasConnectionPoint P:water-in, P:water-out .
   dependencies:
   - template: water-inlet-cp
@@ -259,23 +328,45 @@ disposal:
     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
     s223:Disposal rdfs:subClassOf s223:Equipment .
     P:name a s223:Disposal ;
-      s223:hasConnectionPoint P:waste-in1, P:waste-in2 .
+      s223:hasConnectionPoint P:waste-in1, P:waste-out .
   dependencies:
   - template: waste-inlet-cp
-    library: nrel-templates
-    args: {"name": "waste-in1"}
-  - template: waste-inlet-cp
     library: water-templates
-    args: {"name": "waste-in2"}
+    args: {"name": "waste-in1"}
+  - template: waste-outlet-cp
+    library: water-templates
+    args: {"name": "waste-out"}
 
-UV-AOP:
+ozone-generator:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    s223:OzoneGenerator rdfs:subClassOf s223:Equipment .
+    P:name a s223:OzoneGenerator ;
+      s223:hasConnectionPoint P:chemical-out .
+  dependencies:
+  - template: chemical-outlet-cp
+    library: water-templates
+    args: {"name": "chemical-out"}
+
+UV-light:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    s223:UVLight rdfs:subClassOf s223:Equipment .
+    P:name a s223:UVLight .
+
+UV-Reactor:
   body: >
     @prefix P: <urn:___param___#> .
     @prefix s223: <http://data.ashrae.org/standard223#> .
     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
     s223:UV-AOP rdfs:subClassOf s223:Equipment .
     P:name a s223:UV-AOP ;
-      s223:hasConnectionPoint P:water-in, P:water-out .
+      s223:contains P:uvlightid ;
+      s223:hasConnectionPoint P:water-in,  P:water-out .
   dependencies:
   - template: water-inlet-cp
     library: nrel-templates
@@ -283,22 +374,22 @@ UV-AOP:
   - template: water-outlet-cp
     library: nrel-templates
     args: {"name": "water-out"}
+  - template: UV-light
+    args: {"name": "uvlightid"}
 
-CO2-addition:
+CO2-canister:
   body: >
     @prefix P: <urn:___param___#> .
     @prefix s223: <http://data.ashrae.org/standard223#> .
     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-    s223:CO2-Addition rdfs:subClassOf s223:Equipment .
-    P:name a s223:CO2-Addition ;
-      s223:hasConnectionPoint P:water-in, P:water-out .
+    s223:CO2Canister rdfs:subClassOf s223:Equipment .
+    P:name a s223:CO2Canister ;
+      s223:hasConnectionPoint P:chemical-out .
   dependencies:
-  - template: water-inlet-cp
-    library: nrel-templates
-    args: {"name": "water-in"}
-  - template: water-outlet-cp
-    library: nrel-templates
-    args: {"name": "water-out"}
+  - template: chemical-outlet-cp
+    library: water-templates
+    args: {"name": "chemical-out"}
+
 
 municipal-water:
   body: >
@@ -337,3 +428,10 @@ pipe-waste:
       s223:hasMedium s223:Medium-Waste ;
       s223:cnx P:a, P:b .
 
+pipe-chemical:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:Pipe ;
+      s223:hasMedium s223:Medium-Chemical ;
+      s223:cnx P:a, P:b .

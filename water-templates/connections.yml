@@ -152,3 +152,24 @@ waste-outlet-cp:
       s223:hasMedium s223:Medium-Waste .
   optional: ["mapsto"]
 
+chemical-inlet-cp:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:InletConnectionPoint ;
+      s223:mapsTo P:mapsto ;
+      s223:hasMedium s223:Medium-Chemical .
+    P:mapsto a s223:InletConnectionPoint ;
+      s223:hasMedium s223:Medium-Chemical .
+  optional: ["mapsto"]
+
+chemical-outlet-cp:
+  body: >
+    @prefix P: <urn:___param___#> .
+    @prefix s223: <http://data.ashrae.org/standard223#> .
+    P:name a s223:OutletConnectionPoint ;
+      s223:mapsTo P:mapsto ;
+      s223:hasMedium s223:Medium-Chemical .
+    P:mapsto a s223:OutletConnectionPoint ;
+      s223:hasMedium s223:Medium-Chemical .
+  optional: ["mapsto"]
